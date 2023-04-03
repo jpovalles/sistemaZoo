@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "Zoo.h"
+//#include "Zoo.h"
 
 using namespace std;
 
@@ -54,7 +54,7 @@ public:
 
     void juego();
     void dormir();
-    int comer(string alimento, Zoo zoologico);
+   // int comer(string alimento, Zoo zoologico);
 };
 
 

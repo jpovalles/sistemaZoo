@@ -32,6 +32,7 @@ void Animal::dormir(){
     cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
 }
 
+/*
 int Animal::comer(string alimento, Zoo zoologico){
     unordered_map mapaDieta = zoologico.getComida();
     vector<string> vectorDieta = mapaDieta[this->dieta];
@@ -49,6 +50,7 @@ int Animal::comer(string alimento, Zoo zoologico){
         }
     }
 }
+*/
 
 void Animal::setNombre(string nombre){
     this->nombre = nombre;
