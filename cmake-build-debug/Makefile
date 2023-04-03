@@ -176,6 +176,30 @@ Habitat.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Habitat.cpp.s
 .PHONY : Habitat.cpp.s
 
+Zoo.obj: Zoo.cpp.obj
+.PHONY : Zoo.obj
+
+# target to build an object file
+Zoo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj
+.PHONY : Zoo.cpp.obj
+
+Zoo.i: Zoo.cpp.i
+.PHONY : Zoo.i
+
+# target to preprocess a source file
+Zoo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Zoo.cpp.i
+.PHONY : Zoo.cpp.i
+
+Zoo.s: Zoo.cpp.s
+.PHONY : Zoo.s
+
+# target to generate assembly for a file
+Zoo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Zoo.cpp.s
+.PHONY : Zoo.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -215,6 +239,9 @@ help:
 	@echo ... Habitat.obj
 	@echo ... Habitat.i
 	@echo ... Habitat.s
+	@echo ... Zoo.obj
+	@echo ... Zoo.i
+	@echo ... Zoo.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
