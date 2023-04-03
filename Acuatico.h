@@ -6,11 +6,12 @@
 #define SISTEMAZOO_ACUATICO_H
 
 #include "Animal.h"
+#include "Zoo.h"
 
 class Acuatico : public Animal{
 public:
     void juego();
-    int comer(string alimento, Zoo zoologico);
+    //int comer(string alimento, Zoo zoologico);
     void dormir();
 };
 

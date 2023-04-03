@@ -5,7 +5,7 @@
 #include "Aereo.h"
 
 
-int Aereo::comer(string alimento, Zoo zoologico){
+/*int Aereo::comer(string alimento, Zoo zoologico){
     unordered_map mapaDieta = zoologico.getComida();
     vector<string> vectorDieta = mapaDieta[this->dieta];
 
@@ -21,7 +21,7 @@ int Aereo::comer(string alimento, Zoo zoologico){
             return 0;
         }
     }
-}
+}*/
 
 void Aereo::juego() {
     if(this->jugar){

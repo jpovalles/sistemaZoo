@@ -4,7 +4,7 @@
 
 #include "Terrestres.h"
 
-int Terrestres::comer(string alimento, Zoo zoologico){
+/*int Terrestres::comer(string alimento, Zoo zoologico){
     unordered_map mapaDieta = zoologico.getComida();
     vector<string> vectorDieta = mapaDieta[this->dieta];
 
@@ -20,7 +20,7 @@ int Terrestres::comer(string alimento, Zoo zoologico){
             return 0;
         }
     }
-}
+}*/
 
 void Terrestres::juego() {
     if(this->jugar){

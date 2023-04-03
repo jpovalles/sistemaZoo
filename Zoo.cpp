@@ -7,7 +7,7 @@
 void Zoo::agregarHabitat(Habitat habitatTemp){
     this->listaHabitats.push_back(habitatTemp);
 }
-    
+
 vector<Habitat> Zoo::getHabitats(){
     return listaHabitats;
 }

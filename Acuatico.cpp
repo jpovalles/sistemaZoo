@@ -5,7 +5,7 @@
 #include "Acuatico.h"
 
 
-int Acuatico::comer(string alimento, Zoo zoologico){
+/*int Acuatico::comer(string alimento, Zoo zoologico){
     unordered_map mapaDieta = zoologico.getComida();
     vector<string> vectorDieta = mapaDieta[this->dieta];
 
@@ -21,7 +21,7 @@ int Acuatico::comer(string alimento, Zoo zoologico){
             return 0;
         }
     }
-}
+}*/
 
 void Acuatico::juego() {
     if(this->jugar){
