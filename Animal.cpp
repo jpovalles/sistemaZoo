@@ -4,8 +4,17 @@
 
 #include "Animal.h"
 
-Animal::Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir,
-               bool jugar):nombre(nombre), especie(especie), tipoHabitat(tipoHabitat), dieta(dieta), id(id), edad(edad), horasDormir(horasDormir), jugar(jugar) {}
+Animal::Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar):nombre(nombre), especie(especie), tipoHabitat(tipoHabitat), dieta(dieta), id(id), edad(edad), horasDormir(horasDormir), jugar(jugar) {}
+
+void Animal::juego() {
+    if(this->jugar){
+        cout << this->nombre << " esta cansado para jugar" << endl;
+    }else{
+        cout << this->nombre << "se divirtio jugando!" << endl;
+    }
+
+    this->jugar = not this->jugar;
+}
 
 void Animal::setNombre(string nombre){
     this->nombre = nombre;
