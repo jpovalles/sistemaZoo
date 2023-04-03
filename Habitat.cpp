@@ -4,7 +4,7 @@
 
 #include "Habitat.h"
 
-Habitat::Habitat(string nombre, string tipo, vector<Animal> listaAnimales):nombre(nombre), tipo(tipo), listaAnimales(listaAnimales){}
+Habitat::Habitat(string nombre, string tipo, vector<Animal> listaAnimales): nombre(nombre), tipo(tipo), mapaAnimales(listaAnimales){}
 
 string Habitat::getNombre(){
     return nombre;
@@ -14,11 +14,11 @@ string Habitat::getTipo(){
     return tipo;
 }
 
-vector<Animal> Habitat::getLista(){
-    return listaAnimales;
+unordered_map<int, Animal> Habitat::getMapa(){
+    return mapaAnimales;
 }
 
 void Habitat::agregarAnimal(Animal tempAnimal){
-    this->listaAnimales.push_back(tempAnimal);
+    this->mapaAnimales.insert(make_pair(tempAnimal.getId(), tempAnimal));
     cout<<""<<"fue agregado al habitat"<<endl;
 }

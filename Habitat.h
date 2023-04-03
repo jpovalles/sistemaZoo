@@ -16,12 +16,12 @@ class Habitat {
 private:
     string nombre;
     string tipo;
-    vector<Animal> listaAnimales;
+    unordered_map<int, Animal> mapaAnimales;
 public:
     Habitat(string nombre, string tipo, vector<Animal> listaAnimales);
     string getNombre();
     string getTipo();
-    vector<Animal> getLista();
+    unordered_map<int, Animal> getMapa();
     void agregarAnimal(Animal tempAnimal);
 };
 
