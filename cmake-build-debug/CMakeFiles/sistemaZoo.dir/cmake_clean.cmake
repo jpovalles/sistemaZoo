@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj.d"
   "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj"
   "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj.d"
+  "CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj"
+  "CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj.d"
   "CMakeFiles/sistemaZoo.dir/main.cpp.obj"
   "CMakeFiles/sistemaZoo.dir/main.cpp.obj.d"
   "libsistemaZoo.dll.a"

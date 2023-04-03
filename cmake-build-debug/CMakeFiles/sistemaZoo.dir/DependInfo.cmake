@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/sistemaZoo/Animal.cpp" "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj.d"
   "D:/sistemaZoo/Habitat.cpp" "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj.d"
+  "D:/sistemaZoo/Zoo.cpp" "CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj.d"
   "D:/sistemaZoo/main.cpp" "CMakeFiles/sistemaZoo.dir/main.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/main.cpp.obj.d"
   )
 

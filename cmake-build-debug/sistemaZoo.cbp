@@ -94,6 +94,12 @@
 		<Unit filename="D:/sistemaZoo/Habitat.h">
 			<Option target="sistemaZoo"/>
 		</Unit>
+		<Unit filename="D:/sistemaZoo/Zoo.cpp">
+			<Option target="sistemaZoo"/>
+		</Unit>
+		<Unit filename="D:/sistemaZoo/Zoo.h">
+			<Option target="sistemaZoo"/>
+		</Unit>
 		<Unit filename="D:/sistemaZoo/main.cpp">
 			<Option target="sistemaZoo"/>
 		</Unit>
