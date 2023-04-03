@@ -23,7 +23,7 @@ protected:
 public:
     Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar);
 
-    ~Animal();
+    //~Animal();
 
     void setNombre(string nombre);
     string getNombre();
@@ -48,6 +48,8 @@ public:
 
     void setJugar(bool jugar);
     bool getJugar();
+
+    void juego();
 };
 
 
