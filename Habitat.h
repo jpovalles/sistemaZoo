@@ -8,6 +8,7 @@
 #include<string>
 #include<iostream>
 #include<vector>
+#include"Animal.h"
 
 using namespace std;
 
@@ -17,10 +18,11 @@ private:
     string tipo;
     vector<Animal> listaAnimales;
 public:
+    Habitat(string nombre, string tipo, vector<Animal> listaAnimales);
     string getNombre();
     string getTipo();
     vector<Animal> getLista();
-    void agregarAnimal();
+    void agregarAnimal(Animal tempAnimal);
 };
 
 

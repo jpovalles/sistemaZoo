@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "D:/sistemaZoo/Animal.cpp" "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj.d"
   "D:/sistemaZoo/Habitat.cpp" "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj.d"
   "D:/sistemaZoo/main.cpp" "CMakeFiles/sistemaZoo.dir/main.cpp.obj" "gcc" "CMakeFiles/sistemaZoo.dir/main.cpp.obj.d"
   )

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj"
+  "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj.d"
   "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj"
   "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj.d"
   "CMakeFiles/sistemaZoo.dir/main.cpp.obj"

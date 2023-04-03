@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/sistemaZoo/Animal.cpp">
+			<Option target="sistemaZoo"/>
+		</Unit>
+		<Unit filename="D:/sistemaZoo/Animal.h">
+			<Option target="sistemaZoo"/>
+		</Unit>
 		<Unit filename="D:/sistemaZoo/Habitat.cpp">
 			<Option target="sistemaZoo"/>
 		</Unit>

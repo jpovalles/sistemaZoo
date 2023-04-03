@@ -128,6 +128,30 @@ sistemaZoo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/build
 .PHONY : sistemaZoo/fast
 
+Animal.obj: Animal.cpp.obj
+.PHONY : Animal.obj
+
+# target to build an object file
+Animal.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Animal.cpp.obj
+.PHONY : Animal.cpp.obj
+
+Animal.i: Animal.cpp.i
+.PHONY : Animal.i
+
+# target to preprocess a source file
+Animal.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Animal.cpp.i
+.PHONY : Animal.cpp.i
+
+Animal.s: Animal.cpp.s
+.PHONY : Animal.s
+
+# target to generate assembly for a file
+Animal.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Animal.cpp.s
+.PHONY : Animal.cpp.s
+
 Habitat.obj: Habitat.cpp.obj
 .PHONY : Habitat.obj
 
@@ -185,6 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... sistemaZoo
+	@echo ... Animal.obj
+	@echo ... Animal.i
+	@echo ... Animal.s
 	@echo ... Habitat.obj
 	@echo ... Habitat.i
 	@echo ... Habitat.s

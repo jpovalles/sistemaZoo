@@ -18,7 +18,7 @@ vector<Animal> Habitat::getLista(){
     return listaAnimales;
 }
 
-void agregarAnimal(Animal tempAnimal){
+void Habitat::agregarAnimal(Animal tempAnimal){
     this->listaAnimales.push_back(tempAnimal);
     cout<<""<<"fue agregado al habitat"<<endl;
 }
