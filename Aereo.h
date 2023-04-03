@@ -11,7 +11,7 @@
 class Aereo : public Animal{
 public:
     void juego();
-    //int comer(string alimento, Zoo zoologico);
+    //void comer(string alimento, bool dieta);
     void dormir();
 };
 

@@ -54,7 +54,7 @@ public:
 
     void juego();
     void dormir();
-    int comer(string alimento, Zoo zoologico);
+    void comer(string alimento, bool dieta);
 };
 
 
