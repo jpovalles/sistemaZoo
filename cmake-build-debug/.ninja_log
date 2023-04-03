@@ -1,5 +1,6 @@
 # ninja log v5
 2	294	7022576235949072	CMakeFiles/sistemaZoo.dir/Animal.cpp.obj	8365742eb903a8ed
 3	290	7022575939980881	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
-294	402	7022576236969835	sistemaZoo.exe	dab02451fcf38829
+637	824	7022582003616356	sistemaZoo.exe	97c7a2f40b3e16b7
 16	490	7022565126769146	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
+6	637	7022582001768930	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
