@@ -32,11 +32,11 @@ void Animal::dormir(){
     cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
 }
 
-void Animal::comer(string alimento, bool dieta){
-    if(dieta){
-        cout<<""<<this->nombre<<" esta comiendo "<<alimento<<"\n"<<endl;
-    }else{
-        cout<<""<<alimento<<" no pertenece a la dieta de "<<this->nombre<<"\n"<<endl;
+void Animal::comer(string alimento, bool dieta) {
+    if (dieta) {
+        cout << "" << this->nombre << " esta comiendo " << alimento << "\n" << endl;
+    } else {
+        cout << "" << alimento << " no pertenece a la dieta de " << this->nombre << "\n" << endl;
     }
 }
 

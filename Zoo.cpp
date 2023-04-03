@@ -15,3 +15,16 @@ vector<Habitat> Zoo::getHabitats(){
 unordered_map<string, vector<string>> Zoo::getComida(){
     return comida;
 }
+
+bool Zoo::buscarComida(string tipoDieta, string alimento){
+    vector<string> vectorDieta = this->comida[tipoDieta];
+    vector<string>::iterator itVector;
+
+    for (itVector = vectorDieta.begin(); itVector != vectorDieta.end(); ++itVector){
+        //string comida = *itVector;
+        if(*itVector == alimento){
+            return true;
+        }
+    }
+    return false;
+}

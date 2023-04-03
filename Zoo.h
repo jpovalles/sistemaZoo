@@ -22,6 +22,7 @@ public:
     void agregarHabitat(Habitat habitatTemp);
     vector<Habitat> getHabitats();
     unordered_map<string, vector<string>> getComida();
+    bool buscarComida(string tipoDieta, string alimento);
 };
 
 
