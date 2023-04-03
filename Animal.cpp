@@ -32,6 +32,23 @@ void Animal::dormir(){
     cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
 }
 
+int Animal::comer(string alimento, Zoo zoologico){
+    unordered_map mapaDieta = zoologico.getComida();
+    vector<string> vectorDieta = mapaDieta[this->dieta];
+
+    vector<string>::iterator itVector;
+
+    for (itVector = vectorDieta.begin(); itVector != vectorDieta.end(); ++itVector){
+        //string comida = *itVector;
+        if(*itVector == alimento){
+            cout << this->nombre << " fue alimentado con " << alimento << endl;
+            return 1;
+        }else if(itVector == vectorDieta.end()){
+            cout << this->nombre << " no puede comer " << alimento << endl;
+            return 0;
+        }
+    }
+}
 
 void Animal::setNombre(string nombre){
     this->nombre = nombre;
