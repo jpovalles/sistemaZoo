@@ -50,6 +50,7 @@ public:
     bool getJugar();
 
     void juego();
+    void dormir();
 };
 
 

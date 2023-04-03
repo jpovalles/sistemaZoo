@@ -10,11 +10,28 @@ void Animal::juego() {
     if(this->jugar){
         cout << this->nombre << " esta cansado para jugar" << endl;
     }else{
-        cout << this->nombre << "se divirtio jugando!" << endl;
+        cout << this->nombre << " se divirtio jugando!" << endl;
     }
 
     this->jugar = not this->jugar;
 }
+
+void Animal::dormir(){
+    int inHoras;
+
+    do{
+        cout << "Ingresa las horas a dormir: " << endl;
+        cin >> inHoras;
+        if(inHoras < this->horasDormir){
+            cout << this->nombre << " necesita dormir mas!\n" << endl;
+        }else if(inHoras > this->horasDormir){
+            cout << this->nombre << " no puede dormir tanto!\n" << endl;
+        }
+    }while(inHoras != this->horasDormir);
+
+    cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
+}
+
 
 void Animal::setNombre(string nombre){
     this->nombre = nombre;
