@@ -19,7 +19,7 @@ private:
     vector<Habitat> listaHabitats;
 public:
     Zoo() = default;
-    void agregarHabitat(string nombre, string tipo, vector<Animal> listaAnimales);
+    void agregarHabitat(Habitat habitatTemp);
     vector<Habitat> getHabitats();
     unordered_map<string, vector<string>> getComida();
 };

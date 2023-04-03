@@ -8,7 +8,10 @@
 #include "Animal.h"
 
 class Terrestres : public Animal{
-
+public:
+    void juego();
+    int comer(string alimento, Zoo zoologico);
+    void dormir();
 };
 
 

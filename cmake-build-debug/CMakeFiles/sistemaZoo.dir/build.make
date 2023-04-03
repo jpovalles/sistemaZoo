@@ -124,12 +124,57 @@ CMakeFiles/sistemaZoo.dir/Zoo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sistemaZoo.dir/Zoo.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\sistemaZoo\Zoo.cpp -o CMakeFiles\sistemaZoo.dir\Zoo.cpp.s
 
+CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj: CMakeFiles/sistemaZoo.dir/flags.make
+CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj: D:/sistemaZoo/Terrestres.cpp
+CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj: CMakeFiles/sistemaZoo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\sistemaZoo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj -MF CMakeFiles\sistemaZoo.dir\Terrestres.cpp.obj.d -o CMakeFiles\sistemaZoo.dir\Terrestres.cpp.obj -c D:\sistemaZoo\Terrestres.cpp
+
+CMakeFiles/sistemaZoo.dir/Terrestres.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sistemaZoo.dir/Terrestres.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\sistemaZoo\Terrestres.cpp > CMakeFiles\sistemaZoo.dir\Terrestres.cpp.i
+
+CMakeFiles/sistemaZoo.dir/Terrestres.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sistemaZoo.dir/Terrestres.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\sistemaZoo\Terrestres.cpp -o CMakeFiles\sistemaZoo.dir\Terrestres.cpp.s
+
+CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj: CMakeFiles/sistemaZoo.dir/flags.make
+CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj: D:/sistemaZoo/Acuatico.cpp
+CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj: CMakeFiles/sistemaZoo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\sistemaZoo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj -MF CMakeFiles\sistemaZoo.dir\Acuatico.cpp.obj.d -o CMakeFiles\sistemaZoo.dir\Acuatico.cpp.obj -c D:\sistemaZoo\Acuatico.cpp
+
+CMakeFiles/sistemaZoo.dir/Acuatico.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sistemaZoo.dir/Acuatico.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\sistemaZoo\Acuatico.cpp > CMakeFiles\sistemaZoo.dir\Acuatico.cpp.i
+
+CMakeFiles/sistemaZoo.dir/Acuatico.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sistemaZoo.dir/Acuatico.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\sistemaZoo\Acuatico.cpp -o CMakeFiles\sistemaZoo.dir\Acuatico.cpp.s
+
+CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj: CMakeFiles/sistemaZoo.dir/flags.make
+CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj: D:/sistemaZoo/Aereo.cpp
+CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj: CMakeFiles/sistemaZoo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\sistemaZoo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj -MF CMakeFiles\sistemaZoo.dir\Aereo.cpp.obj.d -o CMakeFiles\sistemaZoo.dir\Aereo.cpp.obj -c D:\sistemaZoo\Aereo.cpp
+
+CMakeFiles/sistemaZoo.dir/Aereo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sistemaZoo.dir/Aereo.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\sistemaZoo\Aereo.cpp > CMakeFiles\sistemaZoo.dir\Aereo.cpp.i
+
+CMakeFiles/sistemaZoo.dir/Aereo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sistemaZoo.dir/Aereo.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\sistemaZoo\Aereo.cpp -o CMakeFiles\sistemaZoo.dir\Aereo.cpp.s
+
 # Object files for target sistemaZoo
 sistemaZoo_OBJECTS = \
 "CMakeFiles/sistemaZoo.dir/main.cpp.obj" \
 "CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj" \
 "CMakeFiles/sistemaZoo.dir/Animal.cpp.obj" \
-"CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj"
+"CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj" \
+"CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj" \
+"CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj" \
+"CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj"
 
 # External object files for target sistemaZoo
 sistemaZoo_EXTERNAL_OBJECTS =
@@ -138,11 +183,14 @@ sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/main.cpp.obj
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Animal.cpp.obj
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj
+sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj
+sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj
+sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/build.make
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/linklibs.rsp
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/objects1.rsp
 sistemaZoo.exe: CMakeFiles/sistemaZoo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\sistemaZoo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable sistemaZoo.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\sistemaZoo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable sistemaZoo.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\sistemaZoo.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

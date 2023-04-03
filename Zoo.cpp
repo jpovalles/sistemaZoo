@@ -4,11 +4,10 @@
 
 #include "Zoo.h"
 
-void Zoo::agregarHabitat(string nombre, string tipo, vector<Animal> listaAnimales){
-    Habitat* pHabitatTemp = new Habitat(nombre, tipo, listaAnimales);
-    this->listaHabitats.push_back(*pHabitatTemp);
+void Zoo::agregarHabitat(Habitat habitatTemp){
+    this->listaHabitats.push_back(habitatTemp);
 }
-
+    
 vector<Habitat> Zoo::getHabitats(){
     return listaHabitats;
 }

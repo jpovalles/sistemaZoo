@@ -128,6 +128,54 @@ sistemaZoo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/build
 .PHONY : sistemaZoo/fast
 
+Acuatico.obj: Acuatico.cpp.obj
+.PHONY : Acuatico.obj
+
+# target to build an object file
+Acuatico.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj
+.PHONY : Acuatico.cpp.obj
+
+Acuatico.i: Acuatico.cpp.i
+.PHONY : Acuatico.i
+
+# target to preprocess a source file
+Acuatico.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Acuatico.cpp.i
+.PHONY : Acuatico.cpp.i
+
+Acuatico.s: Acuatico.cpp.s
+.PHONY : Acuatico.s
+
+# target to generate assembly for a file
+Acuatico.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Acuatico.cpp.s
+.PHONY : Acuatico.cpp.s
+
+Aereo.obj: Aereo.cpp.obj
+.PHONY : Aereo.obj
+
+# target to build an object file
+Aereo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj
+.PHONY : Aereo.cpp.obj
+
+Aereo.i: Aereo.cpp.i
+.PHONY : Aereo.i
+
+# target to preprocess a source file
+Aereo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Aereo.cpp.i
+.PHONY : Aereo.cpp.i
+
+Aereo.s: Aereo.cpp.s
+.PHONY : Aereo.s
+
+# target to generate assembly for a file
+Aereo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Aereo.cpp.s
+.PHONY : Aereo.cpp.s
+
 Animal.obj: Animal.cpp.obj
 .PHONY : Animal.obj
 
@@ -175,6 +223,30 @@ Habitat.s: Habitat.cpp.s
 Habitat.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Habitat.cpp.s
 .PHONY : Habitat.cpp.s
+
+Terrestres.obj: Terrestres.cpp.obj
+.PHONY : Terrestres.obj
+
+# target to build an object file
+Terrestres.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj
+.PHONY : Terrestres.cpp.obj
+
+Terrestres.i: Terrestres.cpp.i
+.PHONY : Terrestres.i
+
+# target to preprocess a source file
+Terrestres.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Terrestres.cpp.i
+.PHONY : Terrestres.cpp.i
+
+Terrestres.s: Terrestres.cpp.s
+.PHONY : Terrestres.s
+
+# target to generate assembly for a file
+Terrestres.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\sistemaZoo.dir\build.make CMakeFiles/sistemaZoo.dir/Terrestres.cpp.s
+.PHONY : Terrestres.cpp.s
 
 Zoo.obj: Zoo.cpp.obj
 .PHONY : Zoo.obj
@@ -233,12 +305,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... sistemaZoo
+	@echo ... Acuatico.obj
+	@echo ... Acuatico.i
+	@echo ... Acuatico.s
+	@echo ... Aereo.obj
+	@echo ... Aereo.i
+	@echo ... Aereo.s
 	@echo ... Animal.obj
 	@echo ... Animal.i
 	@echo ... Animal.s
 	@echo ... Habitat.obj
 	@echo ... Habitat.i
 	@echo ... Habitat.s
+	@echo ... Terrestres.obj
+	@echo ... Terrestres.i
+	@echo ... Terrestres.s
 	@echo ... Zoo.obj
 	@echo ... Zoo.i
 	@echo ... Zoo.s
