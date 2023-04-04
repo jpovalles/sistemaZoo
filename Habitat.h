@@ -7,7 +7,7 @@
 
 #include<string>
 #include<iostream>
-#include<vector>
+#include<unordered_map>
 #include"Animal.h"
 
 using namespace std;
@@ -18,7 +18,7 @@ private:
     string tipo;
     unordered_map<int, Animal> mapaAnimales;
 public:
-    Habitat(string nombre, string tipo, vector<Animal> listaAnimales);
+    Habitat(string nombre, string tipo, unordered_map<int, Animal> mapaAnimales);
     string getNombre();
     string getTipo();
     unordered_map<int, Animal> getMapa();

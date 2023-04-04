@@ -4,7 +4,7 @@
 
 #include "Habitat.h"
 
-Habitat::Habitat(string nombre, string tipo, vector<Animal> listaAnimales): nombre(nombre), tipo(tipo), mapaAnimales(listaAnimales){}
+Habitat::Habitat(string nombre, string tipo, unordered_map<int, Animal> mapaAnimales): nombre(nombre), tipo(tipo), mapaAnimales(mapaAnimales){}
 
 string Habitat::getNombre(){
     return nombre;
