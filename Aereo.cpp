@@ -5,19 +5,19 @@
 #include "Aereo.h"
 
 
-/*void Aereo::comer(string alimento, bool dieta){
+void Aereo::comer(string alimento, bool dieta){
     if(dieta){
-        cout<<""<<this->nombre<<" esta comiendo "<<alimento<<"\n"<<endl;
+        cout<<""<<this->nombre<<" volo para disfrutar de su "<<alimento<<"\n"<<endl;
     }else{
         cout<<""<<alimento<<" no pertenece a la dieta de "<<this->nombre<<"\n"<<endl;
     }
-}*/
+}
 
 void Aereo::juego() {
     if(this->jugar){
-        cout << this->nombre << " esta cansado para jugar" << endl;
+        cout << this->nombre << " no quiere jugar, esta cansado" << endl;
     }else{
-        cout << this->nombre << " se divirtio jugando!" << endl;
+        cout << this->nombre << " sobrevolo el habitat en busca de diversion\n" << endl;
     }
 
     this->jugar = not this->jugar;
@@ -36,5 +36,5 @@ void Aereo::dormir(){
         }
     }while(inHoras != this->horasDormir);
 
-    cout << "Muy bien! " << this->nombre << " volo hasta su nido para descansar.\n" << endl;
+    cout << "Muy bien! " << this->nombre << " salio volando hasta su nido para descansar.\n" << endl;
 }

@@ -11,7 +11,7 @@
 class Aereo : public Animal{
 public:
     void juego();
-    //void comer(string alimento, bool dieta);
+    void comer(string alimento, bool dieta);
     void dormir();
 };
 

@@ -5,19 +5,19 @@
 #include "Acuatico.h"
 
 
-/*void Acuatico::comer(string alimento, bool dieta){
+void Acuatico::comer(string alimento, bool dieta){
     if(dieta){
-        cout<<""<<this->nombre<<" esta comiendo "<<alimento<<"\n"<<endl;
+        cout<<""<<this->nombre<<" ahora esta bajo el agua alimentandose de "<<alimento<<"\n"<<endl;
     }else{
-        cout<<""<<alimento<<" no pertenece a la dieta de "<<this->nombre<<"\n"<<endl;
+        cout<<""<<this->nombre<<" no come "<<alimento<<"\n"<<endl;
     }
-}*/
+}
 
 void Acuatico::juego() {
     if(this->jugar){
-        cout << this->nombre << " esta cansado para jugar" << endl;
+        cout << this->nombre << " esta agotado, dejalo descansar" << endl;
     }else{
-        cout << this->nombre << " se divirtio jugando!" << endl;
+        cout << this->nombre << " dio su paseo divertido por el acuario!" << endl;
     }
 
     this->jugar = not this->jugar;
@@ -32,9 +32,9 @@ void Acuatico::dormir(){
         if(inHoras < this->horasDormir){
             cout << this->nombre << " necesita dormir mas!\n" << endl;
         }else if(inHoras > this->horasDormir){
-            cout << this->nombre << " no puede dormir tanto!\n" << endl;
+            cout << this->nombre << " debe dormir menos!\n" << endl;
         }
     }while(inHoras != this->horasDormir);
 
-    cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
+    cout << "Excelente! " << this->nombre << " se hundio para descansar en un rincon del acuario.\n" << endl;
 }

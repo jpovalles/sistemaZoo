@@ -4,19 +4,19 @@
 
 #include "Terrestres.h"
 
-/*void Terrestres::comer(string alimento, bool dieta){
+void Terrestres::comer(string alimento, bool dieta){
     if(dieta){
-        cout<<""<<this->nombre<<" esta comiendo "<<alimento<<"\n"<<endl;
+        cout<<""<<this->nombre<<" se escondio rapidamente para disfrutar de su "<<alimento<<"\n"<<endl;
     }else{
         cout<<""<<alimento<<" no pertenece a la dieta de "<<this->nombre<<"\n"<<endl;
     }
-}*/
+}
 
 void Terrestres::juego() {
     if(this->jugar){
         cout << this->nombre << " esta cansado para jugar" << endl;
     }else{
-        cout << this->nombre << " se divirtio jugando!" << endl;
+        cout << this->nombre << " esta corriendo al rededor del habitat para aumentar su diversion!" << endl;
     }
 
     this->jugar = not this->jugar;
@@ -31,9 +31,9 @@ void Terrestres::dormir(){
         if(inHoras < this->horasDormir){
             cout << this->nombre << " necesita dormir mas!\n" << endl;
         }else if(inHoras > this->horasDormir){
-            cout << this->nombre << " no puede dormir tanto!\n" << endl;
+            cout << this->nombre << " no debe dormir tanto!\n" << endl;
         }
     }while(inHoras != this->horasDormir);
 
-    cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
+    cout << "Muy bien! " << this->nombre << " ahora esta corriendo hacia su lugar seguro para descansar.\n" << endl;
 }
