@@ -14,6 +14,52 @@ void enlistarAnimales(Zoo* pZoo){
     }
 }
 
+void nuevoAnimal(Zoo* pZoo){
+    string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
+    string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
+    string especie, nombre, tipoHabitat, tipoDieta;
+    int edad, horasDormir, opcDieta = 0, opcTipo = 0, opcHabitat = 0, j = 0;
+    int id = pZoo->getId();
+    cout<<"Cual es la especie del animal?: "<<endl;
+    cin>>especie;
+    getline(cin, especie);
+    cout<<"Como se llama?: "<<endl;
+    cin>>nombre;
+    getline(cin, nombre);
+    cout<<"Cual es su edad?: "<<endl;
+    cin>>edad;
+    cout<<"Cuantas horas necesita dormir?: "<<endl;
+    cin>>horasDormir;
+    do{
+        cout << "Selecciona el tipo de habitat del animal:" << endl;
+        for(int i = 0; i <= 3; i++){
+            cout << i+1 << ") " << tipoHabitats[i] << endl;
+        }
+        cin >> opcTipo;
+    }while(opcTipo < 1 || opcTipo > 4);
+    do{
+        cout << "Selecciona el tipo de dieta:" << endl;
+        for(int i = 0; i <= 2; i++){
+            cout << i+1 << ") " << tiposDietas[i] << endl;
+        }
+        cin >> opcDieta;
+    }while(opcDieta < 1 || opcDieta > 3);
+    cout<<"Seleccione el habitat para el nuevo animal: "<<endl;
+    pZoo->imprimirHabitats();
+    vector<Habitat>::iterator itVector;
+    do{
+        cin>>opcHabitat;
+        itVector = pZoo->getHabitats().begin();
+        while(j<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
+            ++itVector;
+            j++;
+        }
+    }while(itVector->getTipo()!=tipoHabitats[opcTipo-1]);
+    Animal* nuevoAnimal = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, 0);
+    itVector->agregarAnimal(*nuevoAnimal);
+    pZoo->setId(id + 1);
+}
+
 void anadirHabitat(Zoo* pZoo){
 
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};

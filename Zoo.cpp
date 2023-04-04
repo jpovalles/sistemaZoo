@@ -51,6 +51,14 @@ bool Zoo::eliminarAlimento(string tipoDieta, string alimento){
     return false;
 }
 
+int Zoo::getId(){
+    return this->currentId;
+}
+
+void Zoo::setId(int currentId){
+    this->currentId = currentId;
+}
+
 void Zoo::imprimirHabitats(){
     vector<Habitat>::iterator itVector;
     int num = 1;
