@@ -57,7 +57,7 @@ void nuevoAnimal(Zoo* pZoo){
         }
     }while(itVector->getTipo()!=tipoHabitats[opcTipo-1]);
     Animal* nuevoAnimal = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, 0);
-    itVector->agregarAnimal(*nuevoAnimal);
+    itVector->agregarAnimal(nuevoAnimal);
     pZoo->setId(id + 1);
 }
 
@@ -78,7 +78,7 @@ void anadirHabitat(Zoo* pZoo){
         cin >> opcTipo;
     }while(opcTipo < 1 || opcTipo > 4);
 
-    unordered_map<int, Animal>* mapaAnimales;
+    unordered_map<int, Animal*>* mapaAnimales;
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
