@@ -3,25 +3,10 @@
 #include "Animal.h"
 #include "Habitat.h"
 
-void listarAnimales(Zoo* pZoo) {
-    Habitat *pHabitatTemp;
-    Animal *pAnimalTemp;
-    vector<Habitat> vectorHabitats = pZoo->getHabitats();
-    vector<Habitat>::iterator iVectorH;
 
-    for (iVectorH = vectorHabitats.begin(); iVectorH != vectorHabitats.end(); ++iVectorH) {
-        unordered_map<int, Animal> *mapaAnimales = iVectorH->getMapa();
-        unordered_map<int, Animal>::iterator iMapa;
-        cout << "En " << iVectorH->getNombre() << " de tipo " << iVectorH->getTipo() << " se encuentran: \n" << endl;
-        for (iMapa = mapaAnimales->begin(); iMapa != mapaAnimales->end(); ++iMapa) {
-            cout << "\tID: " << iMapa->second.getId() << " Nombre: " << iMapa->second.getNombre() << " Especie: "
-                 << iMapa->second.getEspecie() << " Edad: " << iMapa->second.getEdad();
-            cout << " Dieta: " << iMapa->second.getDieta() << " Tipo de habitat: " << iMapa->second.getTipoHabitat()
-                 << "\n" << endl;
-        }
-    }
-}
-void anadirHabitat(){
+
+void anadirHabitat(Zoo* pZoo){
+
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     int opcTipo = 0;
     string nombreHabitat;
@@ -39,16 +24,17 @@ void anadirHabitat(){
 
     unordered_map<int, Animal>* mapaAnimales;
 
-    Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo], mapaAnimales);
+    Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
+    pZoo->agregarHabitat(habTemp);
 }
 
 int main(){
     Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
-    juan.juego();
-    juan.juego();
-    juan.juego();
 
-    anadirHabitat();
+    Zoo* pZoo = new Zoo;
+    anadirHabitat(pZoo);
+    anadirHabitat(pZoo);
+    pZoo->imprimirHabitats();
     return 0;
 }
 

@@ -6,7 +6,7 @@
 
 void Zoo::agregarHabitat(Habitat habitatTemp){
     this->listaHabitats.push_back(habitatTemp);
-    cout << "El habitat " << habitatTemp.getNombre() << " fue añadido correctamente!" << endl;
+    cout << "El habitat " << habitatTemp.getNombre() << " fue anadido correctamente!" << endl;
 }
 
 vector<Habitat> Zoo::getHabitats(){
@@ -49,4 +49,17 @@ bool Zoo::eliminarAlimento(string tipoDieta, string alimento){
     }
     cout << alimento << " no se encuentra en la dieta " << tipoDieta << endl;
     return false;
+}
+
+void Zoo::imprimirHabitats(){
+    vector<Habitat>::iterator itVector;
+    int num = 1;
+
+    for (itVector = this->listaHabitats.begin(); itVector != this->listaHabitats.end(); ++itVector, num++){
+        Habitat habitatTemp = *itVector;
+        cout << num << ")" << endl;
+        cout << "Nombre: " << habitatTemp.getNombre() << endl;
+        cout << "Tipo de habitat: " << habitatTemp.getTipo() << endl;
+        cout << "-------------------------------" << endl;
+    }
 }
