@@ -20,7 +20,7 @@ unordered_map<int, Animal>* Habitat::getMapa(){
 
 void Habitat::agregarAnimal(Animal tempAnimal){
     this->mapaAnimales->insert(make_pair(tempAnimal.getId(), tempAnimal));
-    cout<<""<<"fue agregado al habitat"<<endl;
+    cout<<""<<tempAnimal.getNombre()<<" fue agregado al habitat"<<endl;
 }
 
 void Habitat::imprimirAnimales(){

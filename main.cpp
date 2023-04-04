@@ -18,7 +18,7 @@ void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
     string especie, nombre, tipoHabitat, tipoDieta;
-    int edad, horasDormir, opcDieta = 0, opcTipo = 0, opcHabitat = 0, j = 0;
+    int edad, horasDormir, opcDieta = 0, opcTipo = 0, opcHabitat = 0;
     int id = pZoo->getId();
     cout<<"Cual es la especie del animal?: "<<endl;
     cin>>especie;
@@ -48,11 +48,12 @@ void nuevoAnimal(Zoo* pZoo){
     pZoo->imprimirHabitats();
     vector<Habitat>::iterator itVector;
     do{
+        int i = 0;
         cin>>opcHabitat;
         itVector = pZoo->getHabitats().begin();
-        while(j<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
+        while(i<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
             ++itVector;
-            j++;
+            i++;
         }
     }while(itVector->getTipo()!=tipoHabitats[opcTipo-1]);
     Animal* nuevoAnimal = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, 0);
