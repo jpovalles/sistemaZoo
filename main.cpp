@@ -3,7 +3,16 @@
 #include "Animal.h"
 #include "Habitat.h"
 
-
+void enlistarAnimales(Zoo* pZoo){
+    vector<Habitat>::iterator itVector;
+    int num = 1;
+    vector<Habitat> vectorHabitats = pZoo->getHabitats();
+    for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
+        Habitat habitatTemp = *itVector;
+        cout << num << ") ";
+        itVector->imprimirAnimales();
+    }
+}
 
 void anadirHabitat(Zoo* pZoo){
 
