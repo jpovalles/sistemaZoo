@@ -6,6 +6,7 @@
 
 void Zoo::agregarHabitat(Habitat habitatTemp){
     this->listaHabitats.push_back(habitatTemp);
+    cout << "El habitat " << habitatTemp.getNombre() << " fue añadido correctamente!" << endl;
 }
 
 vector<Habitat> Zoo::getHabitats(){

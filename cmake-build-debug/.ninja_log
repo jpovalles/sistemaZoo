@@ -4,3 +4,17 @@
 637	824	7022582003616356	sistemaZoo.exe	97c7a2f40b3e16b7
 16	490	7022565126769146	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
 6	637	7022582001768930	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
+37	1142	7022745819661639	CMakeFiles/sistemaZoo.dir/Acuatico.cpp.obj	f3e8ebd783dcb604
+48	1161	7022745819854385	CMakeFiles/sistemaZoo.dir/Animal.cpp.obj	8365742eb903a8ed
+62	1189	7022745820137904	CMakeFiles/sistemaZoo.dir/Terrestres.cpp.obj	cecb99c0cc8f7e3d
+98	1190	7022745820148410	CMakeFiles/sistemaZoo.dir/Aereo.cpp.obj	9a971a1e89783d78
+6	1199	7022745820240007	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
+26	1321	7022745821471955	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
+78	1581	7022745824066657	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
+1581	1975	7022745827923339	sistemaZoo.exe	87b970399e6b9153
+4	637	7022746227629229	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
+638	859	7022746229767587	sistemaZoo.exe	87b970399e6b9153
+4	691	7022747583939405	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
+691	930	7022747586253340	sistemaZoo.exe	87b970399e6b9153
+5	559	7022747916702977	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
+559	809	7022747919115701	sistemaZoo.exe	87b970399e6b9153
