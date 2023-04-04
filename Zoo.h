@@ -24,6 +24,7 @@ public:
     unordered_map<string, vector<string>> getComida();
     bool buscarComida(string tipoDieta, string alimento);
     void agregarAlimento(string tipoDieta, string alimento);
+    bool eliminarAlimento(string tipoDieta, string alimento);
 };
 
 

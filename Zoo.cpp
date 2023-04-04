@@ -33,3 +33,19 @@ void Zoo::agregarAlimento(string tipoDieta, string alimento){
     this->comida[tipoDieta].push_back(alimento);
     cout << alimento << " fue añadido correctamente a la dieta " << tipoDieta << endl;
 }
+
+bool Zoo::eliminarAlimento(string tipoDieta, string alimento){
+    vector<string> vectorDieta = this->comida[tipoDieta];
+    vector<string>::iterator itVector;
+
+    for (itVector = vectorDieta.begin(); itVector != vectorDieta.end(); ++itVector){
+        //string comida = *itVector;
+        if(*itVector == alimento){
+            vectorDieta.erase(itVector);
+            cout << alimento << " fue eliminado de la dieta " << tipoDieta << endl;
+            return true;
+        }
+    }
+    cout << alimento << " no se encuentra en la dieta " << tipoDieta << endl;
+    return false;
+}
