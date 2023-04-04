@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Zoo.h"
 
-void anadirHabitat(){
+void anadirHabitat(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     int opcTipo = 0;
     string nombreHabitat;
@@ -19,15 +19,16 @@ void anadirHabitat(){
 
     unordered_map<int, Animal>* mapaAnimales;
 
-    Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo], mapaAnimales);
+    Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
+    pZoo->agregarHabitat(habTemp);
 }
 
 int main() {
     Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
-    juan.juego();
-    juan.juego();
-    juan.juego();
 
-    anadirHabitat();
+    Zoo* pZoo = new Zoo;
+    anadirHabitat(pZoo);
+    anadirHabitat(pZoo);
+    pZoo->imprimirHabitats();
     return 0;
 }
