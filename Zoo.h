@@ -29,6 +29,7 @@ public:
     void agregarAlimento(string tipoDieta, string alimento);
     bool eliminarAlimento(string tipoDieta, string alimento);
     void imprimirHabitats();
+    void imprimirDieta(string tipo);
 };
 
 

@@ -3,6 +3,53 @@
 #include "Animal.h"
 #include "Habitat.h"
 
+void editarDieta(Zoo* pZoo){
+    string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
+    string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
+    string alimento = "";
+    int opcEditar = 0, opcDieta = 0;
+
+    do{
+        cout << "Que deseas hacer?" << endl;
+        for(int i = 0; i != 3; i++){
+            cout << i << ") " << opcionEditar[i] << endl;
+        }
+
+        cin >> opcEditar;
+
+        do{
+            cout << "\nQue dieta quieres editar?" << endl;
+            for(int i = 0; i != 4; i++){
+                cout << i << ") " << opcionDieta[i] << endl;
+            }
+            cin >> opcDieta;
+        }while(opcDieta < 0 || opcDieta > 3);
+
+
+
+        switch(opcEditar){
+            case 0:
+                break;
+            case 1:
+                cout << "Ingrese el nombre del alimento a ingresar:" << endl;
+                cin >> alimento;
+                pZoo->agregarAlimento(opcionDieta[opcDieta], alimento);
+                break;
+            case 2:
+                if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
+                    cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!\n" << endl;
+                }else{
+                    pZoo->eliminarAlimento(opcionDieta[opcDieta], alimento);
+                }
+                break;
+            default:
+                cout << "\n# Ingresa una opcion valida" << endl;
+        }
+    }while(opcEditar != 0 || opcDieta != 0);
+}
+
+
+
 void enlistarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
@@ -12,6 +59,14 @@ void enlistarAnimales(Zoo* pZoo){
         cout << num << ") ";
         itVector->imprimirAnimales();
     }
+}
+
+bool esVacia(vector<Habitat> vector){
+    return &vector == NULL;
+}
+
+bool esVaciaAnimal(vector<Animal> animal){
+    return &animal == NULL;
 }
 
 void nuevoAnimal(Zoo* pZoo){
@@ -84,13 +139,54 @@ void anadirHabitat(Zoo* pZoo){
     pZoo->agregarHabitat(habTemp);
 }
 
+void menu(Zoo* pZoo){
+    int opcion = 0;
+
+    cout << "########################\nBienvenido al SendoZoo!\n########################" << endl;
+
+    do{
+        cout << "\nQue deseas hacer?" << endl;
+        string opcionesMenu[6] = {"Salir","Anadir habitat", "Anadir animal", "Listar habitats y animales", "Realizar accion", "Editar dietas"};
+        for(int i = 0; i != 6; i++){
+            cout << i << ") " << opcionesMenu[i] << endl;
+        }
+        cin>>opcion;
+
+        switch(opcion){
+            case 0:
+                break;
+            case 1:
+                anadirHabitat(pZoo);
+                break;
+            case 2:
+                nuevoAnimal(pZoo);
+                break;
+            case 3:
+                pZoo->imprimirHabitats();
+                enlistarAnimales(pZoo);
+                break;
+            case 4:
+                //accion();
+                break;
+            case 5:
+                editarDieta(pZoo);
+                break;
+            default:
+                cout << "\n# Ingresa una opcion valida!" << endl;
+        }
+    }while(opcion != 0);
+
+}
+
+
 int main(){
     Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
 
     Zoo* pZoo = new Zoo;
+    /*anadirHabitat(pZoo);
     anadirHabitat(pZoo);
-    anadirHabitat(pZoo);
-    pZoo->imprimirHabitats();
+    pZoo->imprimirHabitats();*/
+    menu(pZoo);
     return 0;
 }
 
