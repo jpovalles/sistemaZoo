@@ -28,3 +28,8 @@ bool Zoo::buscarComida(string tipoDieta, string alimento){
     }
     return false;
 }
+
+void Zoo::agregarAlimento(string tipoDieta, string alimento){
+    this->comida[tipoDieta].push_back(alimento);
+    cout << alimento << " fue añadido correctamente a la dieta " << tipoDieta << endl;
+}
