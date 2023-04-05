@@ -15,13 +15,13 @@ using namespace std;
 
 class Zoo {
 private:
-    int currentId;
+    int currentId = 0;
     unordered_map<string, vector<string>> comida;
-    vector<Habitat> listaHabitats;
+    vector<Habitat>* listaHabitats;
 public:
     Zoo() = default;
     void agregarHabitat(Habitat habitatTemp);
-    vector<Habitat> getHabitats();
+    vector<Habitat>* getHabitats();
     int getId();
     unordered_map<string, vector<string>> getComida();
     void setId(int currentId);

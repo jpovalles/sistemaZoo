@@ -5,11 +5,11 @@
 #include "Zoo.h"
 
 void Zoo::agregarHabitat(Habitat habitatTemp){
-    this->listaHabitats.push_back(habitatTemp);
+    this->listaHabitats->push_back(habitatTemp);
     cout << "El habitat " << habitatTemp.getNombre() << " fue anadido correctamente!" << endl;
 }
 
-vector<Habitat> Zoo::getHabitats(){
+vector<Habitat>* Zoo::getHabitats(){
     return listaHabitats;
 }
 
@@ -64,7 +64,7 @@ void Zoo::imprimirHabitats(){
     int num = 1;
 
 
-    for (itVector = this->listaHabitats.begin(); itVector != this->listaHabitats.end(); ++itVector, num++){
+    for (itVector = this->listaHabitats->begin(); itVector != this->listaHabitats->end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
         cout << num << ")" << endl;
         cout << "Nombre: " << habitatTemp.getNombre() << endl;
