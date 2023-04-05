@@ -127,7 +127,7 @@ void anadirHabitat(Zoo* pZoo){
     cout << "Selecciona el tipo de habitat:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
 
-<<<<<<< HEAD
+
     do{
         cout << "Selecciona el tipo de habitat:" << endl;
         for(int i = 0; i <= 3; i++){
@@ -137,9 +137,6 @@ void anadirHabitat(Zoo* pZoo){
     }while(opcTipo < 1 || opcTipo > 4);
 
     unordered_map<int, Animal> *mapaAnimales = nullptr;
-=======
-    unordered_map<int, Animal*> mapaAnimales;
->>>>>>> bb38cc9975eea2c7bba497056678aac595e45a6b
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
@@ -190,19 +187,9 @@ void menu(Zoo* pZoo){
 
 
 int main(){
-    Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
+    Zoo *pZoo = new Zoo;
 
-    Zoo* pZoo = new Zoo;
-<<<<<<< HEAD
     pZoo->setId(0);
-    /*anadirHabitat(pZoo);
-=======
->>>>>>> bb38cc9975eea2c7bba497056678aac595e45a6b
-    anadirHabitat(pZoo);
-    anadirHabitat(pZoo);
-    nuevoAnimal(pZoo);
-    pZoo->imprimirHabitats();
-    //menu(pZoo);
+    menu(pZoo);
     return 0;
 }
-
