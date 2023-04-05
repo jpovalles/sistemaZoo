@@ -10,7 +10,7 @@ void editarDieta(Zoo* pZoo){
     int opcEditar = 0, opcDieta = 0;
 
     do{
-        cout << "Que deseas hacer?" << endl;
+        cout << "\nQue deseas hacer?" << endl;
         for(int i = 0; i != 3; i++){
             cout << i << ") " << opcionEditar[i] << endl;
         }
@@ -27,29 +27,34 @@ void editarDieta(Zoo* pZoo){
             }while(opcDieta < 0 || opcDieta > 3);
         }
 
-
-
         switch(opcEditar){
             case 0:
                 break;
             case 1:
-                cout << "Ingrese el nombre del alimento a ingresar:" << endl;
-                cin >> alimento;
-                pZoo->agregarAlimento(opcionDieta[opcDieta], alimento);
+                if(opcDieta != 0){
+                    cout << "\nIngrese el nombre del alimento a ingresar:" << endl;
+                    cin >> alimento;
+                    pZoo->agregarAlimento(opcionDieta[opcDieta], alimento);
+                }
                 break;
             case 2:
-                if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
-                    cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!\n" << endl;
-                }else{
-                    pZoo->imprimirDieta(opcionDieta[opcDieta]);
-                    cout << "\nIngresa el alimento a eliminar:" << endl;
-                    cin >> alimento;
-                    pZoo->eliminarAlimento(opcionDieta[opcDieta], alimento);
+                if(opcDieta != 0) {
+                    if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
+                        cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!" << endl;
+                    }else{
+                        pZoo->imprimirDieta(opcionDieta[opcDieta]);
+                        cout << "\nIngresa el alimento a eliminar:" << endl;
+                        cin >> alimento;
+                        pZoo->eliminarAlimento(opcionDieta[opcDieta], alimento);
+                    }
                 }
                 break;
             default:
                 cout << "\n# Ingresa una opcion valida" << endl;
         }
+
+
+
     }while(opcEditar != 0 || opcDieta != 0);
 }
 
