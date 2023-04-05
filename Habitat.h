@@ -16,12 +16,12 @@ class Habitat {
 private:
     string nombre;
     string tipo;
-    unordered_map<int, Animal>* mapaAnimales;
+    unordered_map<int, Animal> mapaAnimales;
 public:
-    Habitat(string nombre, string tipo, unordered_map<int, Animal>* mapaAnimales);
+    Habitat(string nombre, string tipo, unordered_map<int, Animal> mapaAnimales);
     string getNombre();
     string getTipo();
-    unordered_map<int, Animal>* getMapa();
+    unordered_map<int, Animal> getMapa();
     void agregarAnimal(Animal tempAnimal);
     void imprimirAnimales();
 };

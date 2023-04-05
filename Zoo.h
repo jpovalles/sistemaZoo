@@ -22,6 +22,7 @@ public:
     Zoo() = default;
     void agregarHabitat(Habitat habitatTemp);
     vector<Habitat> getHabitats();
+    void setVector(vector<Habitat> vectorTemp);
     int getId();
     unordered_map<string, vector<string>> getComida();
     void setId(int id);

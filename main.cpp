@@ -61,7 +61,7 @@ void enlistarAnimales(Zoo* pZoo){
     vector<Habitat> vectorHabitats = (pZoo->getHabitats());
     for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
-        cout << num << ") ";
+        cout <<"\n"<<num << ") ";
         itVector->imprimirAnimales();
     }
 }
@@ -108,11 +108,11 @@ void nuevoAnimal(Zoo* pZoo){
     vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
-    }while(pZoo->getHabitats()[opcHabitat-1].getTipo() != tipoHabitats[opcTipo-1]);
+    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
 
-    vector<Habitat>::iterator itVector;
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
-    itVector->agregarAnimal(temp);
+    habitatTemp[opcHabitat-1].agregarAnimal(temp);
+    pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
 }
 
@@ -127,16 +127,7 @@ void anadirHabitat(Zoo* pZoo){
     cout << "Selecciona el tipo de habitat:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
 
-
-    do{
-        cout << "Selecciona el tipo de habitat:" << endl;
-        for(int i = 0; i <= 3; i++){
-            cout << i+1 << ") " << tipoHabitats[i] << endl;
-        }
-        cin >> opcTipo;
-    }while(opcTipo < 1 || opcTipo > 4);
-
-    unordered_map<int, Animal> *mapaAnimales = nullptr;
+    unordered_map<int, Animal> mapaAnimales;
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
@@ -191,5 +182,9 @@ int main(){
 
     pZoo->setId(0);
     menu(pZoo);
+    /*anadirHabitat(pZoo);
+    anadirHabitat(pZoo);
+    nuevoAnimal(pZoo);
+    enlistarAnimales(pZoo);*/
     return 0;
 }
