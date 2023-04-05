@@ -58,7 +58,7 @@ void editarDieta(Zoo* pZoo){
 void enlistarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
-    vector<Habitat> vectorHabitats = pZoo->getHabitats();
+    vector<Habitat> vectorHabitats = (pZoo->getHabitats());
     for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
         cout << num << ") ";
@@ -74,6 +74,17 @@ bool esVaciaAnimal(vector<Animal> animal){
     return &animal == NULL;
 }
 
+int seleccionador(int x, string cadena[]){
+    int opcTipo;
+    do{
+        for(int i = 0; i <= x-1; i++){
+            cout << i+1 << ") " << cadena[i] << endl;
+        }
+        cin >> opcTipo;
+    }while(opcTipo < 1 || opcTipo > x);
+    return opcTipo;
+}
+
 void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
@@ -82,41 +93,24 @@ void nuevoAnimal(Zoo* pZoo){
     int id = pZoo->getId();
     cout<<"Cual es la especie del animal?: "<<endl;
     cin>>especie;
-    getline(cin, especie);
     cout<<"Como se llama?: "<<endl;
     cin>>nombre;
-    getline(cin, nombre);
     cout<<"Cual es su edad?: "<<endl;
     cin>>edad;
     cout<<"Cuantas horas necesita dormir?: "<<endl;
     cin>>horasDormir;
-    do{
-        cout << "Selecciona el tipo de habitat del animal:" << endl;
-        for(int i = 0; i <= 3; i++){
-            cout << i+1 << ") " << tipoHabitats[i] << endl;
-        }
-        cin >> opcTipo;
-    }while(opcTipo < 1 || opcTipo > 4);
-    do{
-        cout << "Selecciona el tipo de dieta:" << endl;
-        for(int i = 0; i <= 2; i++){
-            cout << i+1 << ") " << tiposDietas[i] << endl;
-        }
-        cin >> opcDieta;
-    }while(opcDieta < 1 || opcDieta > 3);
-
+    cout << "Selecciona el tipo de habitat del animal:" << endl;
+    opcTipo = seleccionador(4, tipoHabitats);
+    cout << "Selecciona el tipo de dieta:" << endl;
+    opcDieta = seleccionador(3, tiposDietas);
     cout<<"Seleccione el habitat para el nuevo animal: "<<endl;
     pZoo->imprimirHabitats();
-
-    cin>>opcHabitat;
+    vector<Habitat> habitatTemp = (pZoo->getHabitats());
+    do{
+        cin>>opcHabitat;
+    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
 
     vector<Habitat>::iterator itVector;
-    int i = 0;
-    itVector = pZoo->getHabitats().begin();
-    while(i<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
-        ++itVector;
-        i++;
-    }
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
     itVector->agregarAnimal(temp);
     pZoo->setId(id + 1);
@@ -130,7 +124,10 @@ void anadirHabitat(Zoo* pZoo){
 
     cout << "Ingrese el nombre del nuevo habitat:" << endl;
     cin >> nombreHabitat;
+    cout << "Selecciona el tipo de habitat:" << endl;
+    opcTipo = seleccionador(4, tipoHabitats);
 
+<<<<<<< HEAD
     do{
         cout << "Selecciona el tipo de habitat:" << endl;
         for(int i = 0; i <= 3; i++){
@@ -140,6 +137,9 @@ void anadirHabitat(Zoo* pZoo){
     }while(opcTipo < 1 || opcTipo > 4);
 
     unordered_map<int, Animal> *mapaAnimales = nullptr;
+=======
+    unordered_map<int, Animal*> mapaAnimales;
+>>>>>>> bb38cc9975eea2c7bba497056678aac595e45a6b
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
@@ -172,7 +172,7 @@ void menu(Zoo* pZoo){
                 }
                 break;
             case 3:
-                pZoo->imprimirHabitats();
+//                pZoo->imprimirHabitats();
                 enlistarAnimales(pZoo);
                 break;
             case 4:
@@ -193,11 +193,16 @@ int main(){
     Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
 
     Zoo* pZoo = new Zoo;
+<<<<<<< HEAD
     pZoo->setId(0);
     /*anadirHabitat(pZoo);
+=======
+>>>>>>> bb38cc9975eea2c7bba497056678aac595e45a6b
     anadirHabitat(pZoo);
-    pZoo->imprimirHabitats();*/
-    menu(pZoo);
+    anadirHabitat(pZoo);
+    nuevoAnimal(pZoo);
+    pZoo->imprimirHabitats();
+    //menu(pZoo);
     return 0;
 }
 
