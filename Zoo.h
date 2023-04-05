@@ -24,7 +24,7 @@ public:
     vector<Habitat> getHabitats();
     int getId();
     unordered_map<string, vector<string>> getComida();
-    void setId(int currentId);
+    void setId(int id);
     bool buscarComida(string tipoDieta, string alimento);
     void agregarAlimento(string tipoDieta, string alimento);
     bool eliminarAlimento(string tipoDieta, string alimento);

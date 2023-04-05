@@ -54,8 +54,8 @@ int Zoo::getId(){
     return this->currentId;
 }
 
-void Zoo::setId(int currentId){
-    this->currentId = currentId;
+void Zoo::setId(int id){
+    this->currentId = id;
 }
 
 void Zoo::imprimirHabitats(){

@@ -104,20 +104,21 @@ void nuevoAnimal(Zoo* pZoo){
         }
         cin >> opcDieta;
     }while(opcDieta < 1 || opcDieta > 3);
+
     cout<<"Seleccione el habitat para el nuevo animal: "<<endl;
     pZoo->imprimirHabitats();
+
+    cin>>opcHabitat;
+
     vector<Habitat>::iterator itVector;
-    do{
-        int i = 0;
-        cin>>opcHabitat;
-        itVector = pZoo->getHabitats().begin();
-        while(i<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
-            ++itVector;
-            i++;
-        }
-    }while(itVector->getTipo()!=tipoHabitats[opcTipo-1]);
-    Animal* nuevoAnimal = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, 0);
-    itVector->agregarAnimal(nuevoAnimal);
+    int i = 0;
+    itVector = pZoo->getHabitats().begin();
+    while(i<opcHabitat-1 && itVector != pZoo->getHabitats().end()){
+        ++itVector;
+        i++;
+    }
+    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
+    itVector->agregarAnimal(temp);
     pZoo->setId(id + 1);
 }
 
@@ -138,7 +139,7 @@ void anadirHabitat(Zoo* pZoo){
         cin >> opcTipo;
     }while(opcTipo < 1 || opcTipo > 4);
 
-    unordered_map<int, Animal*>* mapaAnimales;
+    unordered_map<int, Animal> *mapaAnimales = nullptr;
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
@@ -164,7 +165,11 @@ void menu(Zoo* pZoo){
                 anadirHabitat(pZoo);
                 break;
             case 2:
-                nuevoAnimal(pZoo);
+                if(pZoo->getHabitats().empty()){
+                    cout << "\n# No hay habitats para recibir animales!" << endl;
+                }else{
+                    nuevoAnimal(pZoo);
+                }
                 break;
             case 3:
                 pZoo->imprimirHabitats();
@@ -188,6 +193,7 @@ int main(){
     Animal juan("juan", "Burro", "Selva", "Carne", 123, 18, 7, 0);
 
     Zoo* pZoo = new Zoo;
+    pZoo->setId(0);
     /*anadirHabitat(pZoo);
     anadirHabitat(pZoo);
     pZoo->imprimirHabitats();*/
