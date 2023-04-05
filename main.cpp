@@ -108,7 +108,7 @@ void nuevoAnimal(Zoo* pZoo){
     vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
-    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
+    }while(pZoo->getHabitats()[opcHabitat-1].getTipo() != tipoHabitats[opcTipo-1]);
 
     vector<Habitat>::iterator itVector;
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
