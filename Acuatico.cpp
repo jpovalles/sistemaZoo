@@ -38,3 +38,12 @@ void Acuatico::dormir(){
 
     cout << "Excelente! " << this->nombre << " se hundio para descansar en un rincon del acuario.\n" << endl;
 }
+
+Animal Acuatico::retornar() {
+    Acuatico prueba("Juan", "Tigre", "Selvatico", "Carnivoro", 12, 34, 5, false);
+    return prueba;
+}
+
+Acuatico::Acuatico(const string &nombre, const string &especie, const string &tipoHabitat, const string &dieta, int id,
+                   int edad, int horasDormir, bool jugar) : Animal(nombre, especie, tipoHabitat, dieta, id, edad,
+                                                                   horasDormir, jugar) {}

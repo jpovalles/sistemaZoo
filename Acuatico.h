@@ -10,9 +10,14 @@
 
 class Acuatico : public Animal{
 public:
-    void juego();
-    void comer(string alimento, bool dieta);
-    void dormir();
+    void juego() override;
+    void comer(string alimento, bool dieta) override;
+    void dormir() override;
+
+    Acuatico(const string &nombre, const string &especie, const string &tipoHabitat, const string &dieta, int id,
+             int edad, int horasDormir, bool jugar);
+
+    Animal retornar();
 };
 
 
