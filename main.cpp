@@ -17,13 +17,15 @@ void editarDieta(Zoo* pZoo){
 
         cin >> opcEditar;
 
-        do{
-            cout << "\nQue dieta quieres editar?" << endl;
-            for(int i = 0; i != 4; i++){
-                cout << i << ") " << opcionDieta[i] << endl;
-            }
-            cin >> opcDieta;
-        }while(opcDieta < 0 || opcDieta > 3);
+        if(opcEditar == 1 || opcEditar == 2){
+            do{
+                cout << "\nQue dieta quieres editar?" << endl;
+                for(int i = 0; i != 4; i++){
+                    cout << i << ") " << opcionDieta[i] << endl;
+                }
+                cin >> opcDieta;
+            }while(opcDieta < 0 || opcDieta > 3);
+        }
 
 
 
@@ -39,6 +41,9 @@ void editarDieta(Zoo* pZoo){
                 if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
                     cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!\n" << endl;
                 }else{
+                    pZoo->imprimirDieta(opcionDieta[opcDieta]);
+                    cout << "\nIngresa el alimento a eliminar:" << endl;
+                    cin >> alimento;
                     pZoo->eliminarAlimento(opcionDieta[opcDieta], alimento);
                 }
                 break;
@@ -53,8 +58,8 @@ void editarDieta(Zoo* pZoo){
 void enlistarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
-    vector<Habitat>* vectorHabitats = (pZoo->getHabitats());
-    for (itVector = vectorHabitats->begin(); itVector != vectorHabitats->end(); ++itVector, num++){
+    vector<Habitat> vectorHabitats = (pZoo->getHabitats());
+    for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
         cout << num << ") ";
         itVector->imprimirAnimales();
@@ -69,7 +74,7 @@ bool esVaciaAnimal(vector<Animal> animal){
     return &animal == NULL;
 }
 
-int seleccionador(int x, string cadena){
+int seleccionador(int x, string cadena[]){
     int opcTipo;
     do{
         for(int i = 0; i <= x-1; i++){
@@ -95,12 +100,12 @@ void nuevoAnimal(Zoo* pZoo){
     cout<<"Cuantas horas necesita dormir?: "<<endl;
     cin>>horasDormir;
     cout << "Selecciona el tipo de habitat del animal:" << endl;
-    opcTipo = seleccionador(4, tipoHabitats[4]);
+    opcTipo = seleccionador(4, tipoHabitats);
     cout << "Selecciona el tipo de dieta:" << endl;
-    opcDieta = seleccionador(3, tiposDietas[3]);
+    opcDieta = seleccionador(3, tiposDietas);
     cout<<"Seleccione el habitat para el nuevo animal: "<<endl;
     pZoo->imprimirHabitats();
-    vector<Habitat> habitatTemp = *(pZoo->getHabitats());
+    vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
@@ -118,7 +123,7 @@ void anadirHabitat(Zoo* pZoo){
     cout << "Ingrese el nombre del nuevo habitat:" << endl;
     cin >> nombreHabitat;
     cout << "Selecciona el tipo de habitat:" << endl;
-    opcTipo = seleccionador(4, tipoHabitats[4]);
+    opcTipo = seleccionador(4, tipoHabitats);
 
     unordered_map<int, Animal*> mapaAnimales;
 
