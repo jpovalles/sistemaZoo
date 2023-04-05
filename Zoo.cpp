@@ -13,6 +13,10 @@ vector<Habitat> Zoo::getHabitats(){
     return listaHabitats;
 }
 
+void Zoo::setVector(vector<Habitat> vectorTemp){
+    this->listaHabitats = vectorTemp;
+}
+
 unordered_map<string, vector<string>> Zoo::getComida(){
     return comida;
 }
