@@ -61,7 +61,7 @@ void enlistarAnimales(Zoo* pZoo){
     vector<Habitat> vectorHabitats = (pZoo->getHabitats());
     for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
-        cout << num << ") ";
+        cout <<"\n"<<num << ") ";
         itVector->imprimirAnimales();
     }
 }
@@ -109,10 +109,8 @@ void nuevoAnimal(Zoo* pZoo){
     do{
         cin>>opcHabitat;
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
-    //vector<Habitat>::iterator itVector;
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
     habitatTemp[opcHabitat-1].agregarAnimal(temp);
-    unordered_map<int, Animal> mapaTemp = habitatTemp[opcHabitat-1].getMapa();
     pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
 }

@@ -28,12 +28,12 @@ void Habitat::agregarAnimal(Animal tempAnimal){
 void Habitat::imprimirAnimales() {
     unordered_map<int, Animal> mapaAnimales = this->mapaAnimales;
     unordered_map<int, Animal>::iterator iMapa;
-    cout << "En " << this->nombre << " de tipo " << this->tipo << " se encuentran: \n" << endl;
+    cout << "En " << this->nombre << " de tipo " << this->tipo << " se encuentran:"<<endl;
     int num = 1;
     for (iMapa = mapaAnimales.begin(); iMapa != mapaAnimales.end(); ++iMapa, num++) {
-        cout << "\n\t" << num << ") ID: " << iMapa->second.getId() << " Nombre: " << iMapa->second.getNombre()
-             << " Especie: "
-             << iMapa->second.getEspecie() << " Edad: " << iMapa->second.getEdad();
-        cout << " Dieta: " << iMapa->second.getDieta() << " Tipo de habitat: " << iMapa->second.getTipoHabitat();
+        cout << "\t" << num << ") ID: " << iMapa->second.getId() << "| Nombre: " << iMapa->second.getNombre()
+             << "| Especie: "
+             << iMapa->second.getEspecie() << "| Edad: " << iMapa->second.getEdad();
+        cout << "| Dieta: " << iMapa->second.getDieta() << "| Tipo de habitat: " << iMapa->second.getTipoHabitat()<<endl;
     }
 }
