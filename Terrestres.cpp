@@ -16,7 +16,7 @@ void Terrestres::juego() {
     if(this->jugar){
         cout << this->nombre << " esta cansado para jugar" << endl;
     }else{
-        cout << this->nombre << " esta corriendo al rededor del habitat para aumentar su diversion!" << endl;
+        cout << this->nombre << " esta corriendo alrededor del habitat para aumentar su diversion!" << endl;
     }
 
     this->jugar = not this->jugar;

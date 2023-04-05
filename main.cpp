@@ -17,13 +17,15 @@ void editarDieta(Zoo* pZoo){
 
         cin >> opcEditar;
 
-        do{
-            cout << "\nQue dieta quieres editar?" << endl;
-            for(int i = 0; i != 4; i++){
-                cout << i << ") " << opcionDieta[i] << endl;
-            }
-            cin >> opcDieta;
-        }while(opcDieta < 0 || opcDieta > 3);
+        if(opcEditar == 1 || opcEditar == 2){
+            do{
+                cout << "\nQue dieta quieres editar?" << endl;
+                for(int i = 0; i != 4; i++){
+                    cout << i << ") " << opcionDieta[i] << endl;
+                }
+                cin >> opcDieta;
+            }while(opcDieta < 0 || opcDieta > 3);
+        }
 
 
 
@@ -39,6 +41,9 @@ void editarDieta(Zoo* pZoo){
                 if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
                     cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!\n" << endl;
                 }else{
+                    pZoo->imprimirDieta(opcionDieta[opcDieta]);
+                    cout << "\nIngresa el alimento a eliminar:" << endl;
+                    cin >> alimento;
                     pZoo->eliminarAlimento(opcionDieta[opcDieta], alimento);
                 }
                 break;
