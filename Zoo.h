@@ -15,7 +15,7 @@ using namespace std;
 
 class Zoo {
 private:
-    int currentId = 0;
+    int currentId;
     unordered_map<string, vector<string>> comida;
     vector<Habitat> listaHabitats;
 public:

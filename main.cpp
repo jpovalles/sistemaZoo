@@ -7,7 +7,7 @@ void editarDieta(Zoo* pZoo){
     string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
     string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
     string alimento = "";
-    int opcEditar = 0, opcDieta = 0;
+    int opcEditar, opcDieta;
 
     do{
         cout << "Que deseas hacer?" << endl;
@@ -53,8 +53,6 @@ void editarDieta(Zoo* pZoo){
     }while(opcEditar != 0 || opcDieta != 0);
 }
 
-
-
 void enlistarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
@@ -62,7 +60,10 @@ void enlistarAnimales(Zoo* pZoo){
     for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
         cout <<"\n"<<num << ") ";
-        itVector->imprimirAnimales();
+        if(itVector->getMapa().empty()){
+            cout<<"En "<<itVector->getNombre()<<" de tipo "<<itVector->getTipo()<< " se encuentran:"<<endl;
+            cout<<"\tEste habitat esta vacio"<<endl;
+        }else{itVector->imprimirAnimales();}
     }
 }
 
@@ -95,8 +96,10 @@ void nuevoAnimal(Zoo* pZoo){
     cin>>especie;
     cout<<"Como se llama?: "<<endl;
     cin>>nombre;
-    cout<<"Cual es su edad?: "<<endl;
-    cin>>edad;
+    do{
+        cout<<"Cual es su edad?: "<<endl;
+        cin>>edad;
+    }while(edad<0 || edad>15);
     cout<<"Cuantas horas necesita dormir?: "<<endl;
     cin>>horasDormir;
     cout << "Selecciona el tipo de habitat del animal:" << endl;
@@ -159,7 +162,6 @@ void menu(Zoo* pZoo){
                 }
                 break;
             case 3:
-//                pZoo->imprimirHabitats();
                 enlistarAnimales(pZoo);
                 break;
             case 4:
