@@ -28,7 +28,7 @@ void editarDieta(Zoo* pZoo){
 
     do{
         cout << "\nQue deseas hacer?" << endl;
-        for(int i = 0; i != opcionEditar->size(); i++){
+        for(int i = 0; i != 3; i++){
             cout << i << ") " << opcionEditar[i] << endl;
         }
 
@@ -37,7 +37,7 @@ void editarDieta(Zoo* pZoo){
         if(opcEditar == 1 || opcEditar == 2){
             do{
                 cout << "\nQue dieta quieres editar?" << endl;
-                for(int i = 0; i != opcionDieta->size(); i++){
+                for(int i = 0; i != 4; i++){
                     cout << i << ") " << opcionDieta[i] << endl;
                 }
                 cin >> opcDieta;
