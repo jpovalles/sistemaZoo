@@ -21,16 +21,16 @@ unordered_map<string, vector<string>> Zoo::getComida(){
     return comida;
 }
 
-bool Zoo::buscarComida(string tipoDieta, string alimento){ //verifica en el mapa que el alimento que se quiere dar exista
+//verifica en el mapa que el alimento que se quiere dar exista y pertenezca a la dieta del animal
+bool Zoo::buscarComida(string tipoDieta, string alimento){
     vector<string> vectorDieta = this->comida[tipoDieta];
     vector<string>::iterator itVector;
-
     for (itVector = vectorDieta.begin(); itVector != vectorDieta.end(); ++itVector){
         if(*itVector == alimento){
             return true;
         }
     }
-    cout << "\n# " << alimento << "no se encuentra en la dieta " << tipoDieta << endl;
+    cout << "\n# " << alimento << " no se encuentra en la dieta " << tipoDieta << endl;
     return false;
 }
 
