@@ -233,9 +233,11 @@ void menu(Zoo* pZoo){
                 listarAnimales(pZoo);
                 break;
             case 4:
-                id = validarAnimal(pZoo);
                 accionSel = escogerAccion();
-                accion(id, accionSel, pZoo);
+                if(accionSel != "Salir"){
+                    id = validarAnimal(pZoo);
+                    accion(id, accionSel, pZoo);
+                }
                 break;
             case 5:
                 editarDieta(pZoo);
