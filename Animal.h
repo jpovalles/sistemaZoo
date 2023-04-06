@@ -19,13 +19,14 @@ protected:
     string especie;
     string tipoHabitat;
     string dieta;
+    string estadoSalud;
     int id;
     int edad;
     int horasDormir;
     bool jugar;
 public:
     Animal() = default;
-    Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar);
+    Animal(string nombre, string especie, string tipoHabitat, string dieta, string estadoSalud, int id, int edad, int horasDormir, bool jugar);
 
     //~Animal();
 
@@ -40,6 +41,8 @@ public:
 
     void setDieta(string Dieta);
     string getDieta();
+
+    string getSalud();
 
     void setId(int Id);
     int getId();

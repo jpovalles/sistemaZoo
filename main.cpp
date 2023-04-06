@@ -149,7 +149,7 @@ void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
     //Permiten limitar los tipos de habitats y de dietas que se quieran ingresar
-    string especie, nombre, tipoHabitat, tipoDieta;
+    string especie, nombre, tipoHabitat, tipoDieta, estadoSalud;
     int edad, horasDormir, opcDieta, opcTipo, opcHabitat;
     int id = pZoo->getId();
     cout<<"Cual es la especie del animal?: "<<endl;
@@ -164,6 +164,8 @@ void nuevoAnimal(Zoo* pZoo){
         cout<<"Cuantas horas necesita dormir?: "<<endl;
         cin>>horasDormir;
     }while(horasDormir<1 || horasDormir>24);
+    cout<<"Cual es el estado de salud del animal:"<<endl;
+    cin>>estadoSalud;
     cout << "Selecciona el tipo de habitat del animal:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
     cout << "Selecciona el tipo de dieta:" << endl;
@@ -177,7 +179,7 @@ void nuevoAnimal(Zoo* pZoo){
             cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
         }
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]); //Verifica que el animal si pertenezca al habitat que se quiere agregar
-    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
+    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
     habitatTemp[opcHabitat-1].agregarAnimal(temp); //Agrega los animales a un vector temporal para asignarlo completo al Zoo
     pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
