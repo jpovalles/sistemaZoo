@@ -10,6 +10,7 @@
 
 class Terrestres : public Animal{
 public:
+    Terrestres(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar);
     void juego();
     void comer(string alimento, bool dieta);
     void dormir();
