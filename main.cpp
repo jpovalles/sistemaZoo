@@ -207,7 +207,7 @@ void menu(Zoo* pZoo){
     string accionSel;
 
     cout << "########################\nBienvenido al SendoZoo!\n########################" << endl;
-
+    int flag = 0;
     do{
         cout << "\nQue deseas hacer?" << endl;
         string opcionesMenu[6] = {"Salir","Anadir habitat", "Anadir animal", "Listar habitats y animales", "Realizar accion", "Editar dietas"};
@@ -227,15 +227,20 @@ void menu(Zoo* pZoo){
                     cout << "\n# No hay habitats para recibir animales!" << endl;
                 }else{
                     nuevoAnimal(pZoo);
+                    flag = 1;
                 }
                 break;
             case 3:
                 listarAnimales(pZoo);
                 break;
             case 4:
-                id = validarAnimal(pZoo);
-                accionSel = escogerAccion();
-                accion(id, accionSel, pZoo);
+                if(flag==0){
+                    cout<<"Aun no hay animales en el SendoZoo"<<endl;
+                }else{
+                    id = validarAnimal(pZoo);
+                    accionSel = escogerAccion();
+                    accion(id, accionSel, pZoo);
+                }
                 break;
             case 5:
                 editarDieta(pZoo);
