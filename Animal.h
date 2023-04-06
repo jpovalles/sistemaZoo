@@ -9,12 +9,12 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-//#include "Zoo.h"
+
 
 using namespace std;
 
 class Animal {
-protected:
+private:
     string nombre;
     string especie;
     string tipoHabitat;

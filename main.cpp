@@ -7,7 +7,7 @@
 int encontrarAnimal(int id, Zoo* pZoo){ //Metodo que busca el animal en los habitats, si lo encuentra retorna el indice del habitat y si no retorna un -1
 
     for(int i = 0; i < pZoo->getHabitats().size(); i++){
-        unordered_map<int, Animal> mapaAnimales = pZoo->getHabitats()[i].getMapa();
+        unordered_map<int, Animal*> mapaAnimales = pZoo->getHabitats()[i].getMapa();
 
         if(mapaAnimales.count(id) == 1){
             cout << "Animal encontrado!\n" << endl;
@@ -131,24 +131,24 @@ void accion(int id, string accion, Zoo* pZoo){
     string alimento;
     bool estaComida;
     int estaAnimal = encontrarAnimal(id, pZoo);
-    Animal animTemp = pZoo->getHabitats()[estaAnimal].getMapa()[id];
+    Animal* animTemp = pZoo->getHabitats()[estaAnimal].getMapa()[id];
 
     if(accion == "Comer"){
-        if(pZoo->getComida()[animTemp.getDieta()].empty()){
-            cout << "\n# No puede ejecutarse la accion comer, no hay alimentos en la dieta " << animTemp.getDieta() << endl;
+        if(pZoo->getComida()[animTemp->getDieta()].empty()){
+            cout << "\n# No puede ejecutarse la accion comer, no hay alimentos en la dieta " << animTemp->getDieta() << endl;
         }else{
             do{
                 cout << "Ingrese el alimento:" << endl;
                 cin >> alimento;
-                estaComida = pZoo->buscarComida(animTemp.getDieta(), alimento);
+                estaComida = pZoo->buscarComida(animTemp->getDieta(), alimento);
             }while(not estaComida);
-            animTemp.comer(alimento, true);
+            animTemp->comer(alimento, true);
         }
 
     }else if(accion == "Jugar"){
-        pZoo->getHabitats()[estaAnimal].getMapa()[id].juego();  // No se puede usar animTemp porque no cambiaria el valor bool juego del animal, el cambio no perduraria
+        pZoo->getHabitats()[estaAnimal].getMapa()[id]->juego();  // No se puede usar animTemp porque no cambiaria el valor bool juego del animal, el cambio no perduraria
     }else if(accion == "Dormir"){
-        animTemp.dormir();
+        animTemp->dormir();
     }
 }
 
@@ -186,7 +186,8 @@ void nuevoAnimal(Zoo* pZoo){
             cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
         }
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]); //Verifica que el animal si pertenezca al habitat que se quiere agregar
-    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
+     Animal* temp = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
+    //Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
     habitatTemp[opcHabitat-1].agregarAnimal(temp); //Agrega los animales a un vector temporal para asignarlo completo al Zoo
     pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
@@ -203,7 +204,7 @@ void anadirHabitat(Zoo* pZoo){
     cout << "Selecciona el tipo de habitat:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
 
-    unordered_map<int, Animal> mapaAnimales;
+    unordered_map<int, Animal*> mapaAnimales;
 
     Habitat habTemp(nombreHabitat, tipoHabitats[opcTipo-1], mapaAnimales);  //opcTipo-1 porque recibe el numeral de seleccion y se lo necesita como indice del arreglo tipoHabitats
     pZoo->agregarHabitat(habTemp);
