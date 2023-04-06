@@ -33,7 +33,7 @@ void Habitat::imprimirAnimales() {
     for (iMapa = mapaAnimales.begin(); iMapa != mapaAnimales.end(); ++iMapa, num++) {
         cout << "\t" << num << ") ID: " << iMapa->second.getId() << "| Nombre: " << iMapa->second.getNombre()
              << "| Especie: "
-             << iMapa->second.getEspecie() << "| Edad: " << iMapa->second.getEdad();
+             << iMapa->second.getEspecie() << "| Edad: " << iMapa->second.getEdad()<<"| Estado de salud: "<<iMapa->second.getSalud();
         cout << "| Dieta: " << iMapa->second.getDieta() << "| Tipo de habitat: " << iMapa->second.getTipoHabitat()<<endl;
     }
 }

@@ -24,7 +24,7 @@ void editarDieta(Zoo* pZoo){
     string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
     string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
     string alimento = "";
-    int opcEditar, opcDieta;
+    int opcEditar = 0, opcDieta = 0;
 
     do{
         cout << "\nQue deseas hacer?" << endl;
@@ -101,7 +101,7 @@ int validarAnimal(Zoo* pZoo){  // ingreso del id y validacion de que el animal e
 
 
 
-int seleccionador(int x, string cadena[]){
+int seleccionador(int x, string cadena[]){ //Se asegura de que el usuario no ingrese entradas no deseadas
     int opcTipo;
     do{
         for(int i = 0; i <= x-1; i++){
@@ -115,12 +115,11 @@ int seleccionador(int x, string cadena[]){
         }catch(runtime_error& e){
             cout<<e.what()<<endl;
         }
-
     }while(opcTipo < 1 || opcTipo > x);
     return opcTipo;
 }
 
-string escogerAccion(){
+string escogerAccion(){ //Imprime las ordenes que se le pueden dar al animal y la retorna
     string acciones[4] = {"Salir", "Comer", "Jugar", "Dormir"};
 
     int seleccion = seleccionador(4, acciones);
@@ -132,24 +131,32 @@ void accion(int id, string accion, Zoo* pZoo){
     string alimento;
     bool estaComida;
     int estaAnimal = encontrarAnimal(id, pZoo);
+    Animal animTemp = pZoo->getHabitats()[estaAnimal].getMapa()[id];
 
     if(accion == "Comer"){
-        do{
-            cout << "Ingrese el alimento:" << endl;
-            cin >> alimento;
-            estaComida = pZoo->buscarComida(pZoo->getHabitats()[estaAnimal].getMapa()[id].getDieta(), alimento);
-        }while(not estaComida);
-    }else if(accion == "“Jugar”"){
-        pZoo->getHabitats()[estaAnimal].getMapa()[id].juego();
-    }else if(accion == "“Dormir”"){
-        pZoo->getHabitats()[estaAnimal].getMapa()[id].dormir();
+        if(pZoo->getComida()[animTemp.getDieta()].empty()){
+            cout << "\n# No puede ejecutarse la accion comer, no hay alimentos en la dieta " << animTemp.getDieta() << endl;
+        }else{
+            do{
+                cout << "Ingrese el alimento:" << endl;
+                cin >> alimento;
+                estaComida = pZoo->buscarComida(animTemp.getDieta(), alimento);
+            }while(not estaComida);
+            animTemp.comer(alimento, true);
+        }
+
+    }else if(accion == "Jugar"){
+        pZoo->getHabitats()[estaAnimal].getMapa()[id].juego();  // No se puede usar animTemp porque no cambiaria el valor bool juego del animal, el cambio no perduraria
+    }else if(accion == "Dormir"){
+        animTemp.dormir();
     }
 }
 
 void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
-    string especie, nombre, tipoHabitat, tipoDieta;
+    //Permiten limitar los tipos de habitats y de dietas que se quieran ingresar
+    string especie, nombre, tipoHabitat, tipoDieta, estadoSalud;
     int edad, horasDormir, opcDieta, opcTipo, opcHabitat;
     int id = pZoo->getId();
     cout<<"Cual es la especie del animal?: "<<endl;
@@ -164,6 +171,8 @@ void nuevoAnimal(Zoo* pZoo){
         cout<<"Cuantas horas necesita dormir?: "<<endl;
         cin>>horasDormir;
     }while(horasDormir<1 || horasDormir>24);
+    cout<<"Cual es el estado de salud del animal:"<<endl;
+    cin>>estadoSalud;
     cout << "Selecciona el tipo de habitat del animal:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
     cout << "Selecciona el tipo de dieta:" << endl;
@@ -176,10 +185,9 @@ void nuevoAnimal(Zoo* pZoo){
         if(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]){
             cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
         }
-    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
-
-    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
-    habitatTemp[opcHabitat-1].agregarAnimal(temp);
+    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]); //Verifica que el animal si pertenezca al habitat que se quiere agregar
+    Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
+    habitatTemp[opcHabitat-1].agregarAnimal(temp); //Agrega los animales a un vector temporal para asignarlo completo al Zoo
     pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
 }
@@ -207,7 +215,7 @@ void menu(Zoo* pZoo){
     string accionSel;
 
     cout << "########################\nBienvenido al SendoZoo!\n########################" << endl;
-
+    int flag = 0;
     do{
         cout << "\nQue deseas hacer?" << endl;
         string opcionesMenu[6] = {"Salir","Anadir habitat", "Anadir animal", "Listar habitats y animales", "Realizar accion", "Editar dietas"};
@@ -227,20 +235,25 @@ void menu(Zoo* pZoo){
                     cout << "\n# No hay habitats para recibir animales!" << endl;
                 }else{
                     nuevoAnimal(pZoo);
+                    flag = 1; //Permite conocer si ya se han agregado animales al Zoo
                 }
                 break;
             case 3:
                 listarAnimales(pZoo);
                 break;
             case 4:
-                accionSel = escogerAccion();
-                if(accionSel != "Salir"){
-                    id = validarAnimal(pZoo);
-                    accion(id, accionSel, pZoo);
+                if(flag==0){
+                    cout<<"Aun no hay animales en el SendoZoo\n"<<endl;
+                }else {
+                    accionSel = escogerAccion();
+                    if (accionSel != "Salir") {
+                        id = validarAnimal(pZoo);
+                        accion(id, accionSel, pZoo);
+                    }
                 }
                 break;
             case 5:
-                editarDieta(pZoo);
+                editarDieta(pZoo); //Permite agregar y eliminar alimentos
                 break;
             default:
                 cout << "\n# Ingresa una opcion valida!" << endl;
