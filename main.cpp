@@ -52,10 +52,7 @@ void editarDieta(Zoo* pZoo){
             default:
                 cout << "\n# Ingresa una opcion valida" << endl;
         }
-
-
-
-    }while(opcEditar != 0 || opcDieta != 0);
+    }while(opcEditar != 0 && opcDieta != 0);
 }
 
 
