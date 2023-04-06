@@ -21,6 +21,7 @@ int encontrarAnimal(int id, Zoo* pZoo){ //Metodo que busca el animal en los habi
 
 
 void editarDieta(Zoo* pZoo){
+    //Permite limitar las entradas del usuario para evitar entradas no deseadas
     string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
     string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
     string alimento = "";
@@ -127,7 +128,7 @@ string escogerAccion(){ //Imprime las ordenes que se le pueden dar al animal y l
     return acciones[seleccion-1];
 }
 
-void accion(int id, string accion, Zoo* pZoo){
+void accion(int id, string accion, Zoo* pZoo){ //id: identificador del animal. Acción: orden que se le da al animal. Funciona a modo de menú
     string alimento;
     bool estaComida;
     int estaAnimal = encontrarAnimal(id, pZoo);
@@ -141,8 +142,8 @@ void accion(int id, string accion, Zoo* pZoo){
                 cout << "Ingrese el alimento:" << endl;
                 cin >> alimento;
                 estaComida = pZoo->buscarComida(animTemp->getDieta(), alimento);
-            }while(not estaComida);
-            animTemp->comer(alimento, true);
+            }while(not estaComida); //Se verifica que el alimento sí pertenezca a la dieta
+            animTemp->comer(alimento, true); //El booleano indica si el alimento pertenece a la dieta del animal.
         }
 
     }else if(accion == "Jugar"){
@@ -158,7 +159,7 @@ void nuevoAnimal(Zoo* pZoo){
     //Permiten limitar los tipos de habitats y de dietas que se quieran ingresar
     string especie, nombre, tipoHabitat, tipoDieta, estadoSalud;
     int edad, horasDormir, opcDieta, opcTipo, opcHabitat;
-    int id = pZoo->getId();
+    int id = pZoo->getId(); //Identificador automático para evitar id`s repetidos
     cout<<"Cual es la especie del animal?: "<<endl;
     cin>>especie;
     cout<<"Como se llama?: "<<endl;
@@ -182,12 +183,12 @@ void nuevoAnimal(Zoo* pZoo){
     vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
+        //Se resta 1 porque se imprimen los habitats a partir de esta posición, pero para acceder a ellos con índice la primera posición es 0 (una menos)
         if(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]){
             cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
         }
-    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]); //Verifica que el animal si pertenezca al habitat que se quiere agregar
-     Animal* temp = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
-    //Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
+    }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]); //Verifica que el animal si pueda pertenecer al habitat que se quiere agregar
+    Animal* temp = new Animal(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], estadoSalud, id, edad, horasDormir, false);
     habitatTemp[opcHabitat-1].agregarAnimal(temp); //Agrega los animales a un vector temporal para asignarlo completo al Zoo
     pZoo->setVector(habitatTemp);
     pZoo->setId(id + 1);
@@ -236,7 +237,7 @@ void menu(Zoo* pZoo){
                     cout << "\n# No hay habitats para recibir animales!" << endl;
                 }else{
                     nuevoAnimal(pZoo);
-                    flag = 1; //Permite conocer si ya se han agregado animales al Zoo
+                    flag = 1; //Permite conocer si ya se han agregado animales al Zoo para no tener problemas con otras funciones
                 }
                 break;
             case 3:
@@ -267,7 +268,7 @@ void menu(Zoo* pZoo){
 int main(){
     Zoo *pZoo = new Zoo;
 
-    pZoo->setId(0);
+    pZoo->setId(1);
     menu(pZoo);
     /*anadirHabitat(pZoo);
     anadirHabitat(pZoo);
