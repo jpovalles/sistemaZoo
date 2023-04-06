@@ -116,6 +116,9 @@ void nuevoAnimal(Zoo* pZoo){
     vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
+        if(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]){
+            cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
+        }
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
 
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
