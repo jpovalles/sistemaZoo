@@ -9,3 +9,4 @@ Por último, se tienen 3 métodos que corresponden a las acciones del animal:
 ##Metodo juego:
 En primer lugar se tiene juego() que no recibe ningún parámetro, lo que hace es imprimir un mensaje dependiendo del valor del atributo jugar que es un booleano, luego de imprimir el mensaje el valor de jugar cambia a su contrario para que en la siguiente instancia se imprima el otro el mensaje, esto para que la función sea intermitente entre instancias de ejecución.
 ![image info](images/juego.png)
+
