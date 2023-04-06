@@ -31,6 +31,7 @@ bool Zoo::buscarComida(string tipoDieta, string alimento){
             return true;
         }
     }
+    cout << "\n# " << alimento << "no se encuentra en la dieta " << tipoDieta << endl;
     return false;
 }
 

@@ -125,7 +125,7 @@ string escogerAccion(){
 
     int seleccion = seleccionador(4, acciones);
 
-    return acciones[seleccion];
+    return acciones[seleccion-1];
 }
 
 void accion(int id, string accion, Zoo* pZoo){
