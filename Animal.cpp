@@ -13,7 +13,7 @@ void Animal::juego() {
         cout << this->nombre << " se divirtio jugando!" << endl;
     }
 
-    this->jugar = not this->jugar;
+    this->jugar = not this->jugar;  // El cansancio del animal va a hacer intermitente entre instancias de ejecucion del codigo
 }
 
 void Animal::dormir(){

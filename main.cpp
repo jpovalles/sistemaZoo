@@ -146,7 +146,7 @@ void accion(int id, string accion, Zoo* pZoo){
         }
 
     }else if(accion == "Jugar"){
-        pZoo->getHabitats()[estaAnimal].getMapa()[id]->juego();  // No se puede usar animTemp porque no cambiaria el valor bool juego del animal, el cambio no perduraria
+        animTemp->juego();
     }else if(accion == "Dormir"){
         animTemp->dormir();
     }
