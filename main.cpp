@@ -236,10 +236,12 @@ void menu(Zoo* pZoo){
             case 4:
                 if(flag==0){
                     cout<<"Aun no hay animales en el SendoZoo"<<endl;
-                }else{
-                    id = validarAnimal(pZoo);
+                }else {
                     accionSel = escogerAccion();
-                    accion(id, accionSel, pZoo);
+                    if (accionSel != "Salir") {
+                        id = validarAnimal(pZoo);
+                        accion(id, accionSel, pZoo);
+                    }
                 }
                 break;
             case 5:
