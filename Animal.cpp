@@ -36,7 +36,7 @@ void Animal::comer(string alimento, bool dieta) {
     if (dieta) {
         cout << "" << this->nombre << " esta comiendo " << alimento << "\n" << endl;
     } else {
-        cout << "" << alimento << " no pertenece a la dieta de " << this->nombre << "\n" << endl;
+        cout << "" << alimento << " no pertenece a la dieta de " << this->especie << " " << this->nombre << "\n" << endl;
     }
 }
 

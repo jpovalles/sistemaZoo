@@ -3,7 +3,7 @@
 #include "Animal.h"
 #include "Habitat.h"
 
-int encontrarAnimal(int id, Zoo* pZoo){
+int encontrarAnimal(int id, Zoo* pZoo){ //Metodo que busca el animal en los habitats, si lo encuentra retorna el indice del habitat y si no retorna un -1
 
     for(int i = 0; i < pZoo->getHabitats().size(); i++){
         unordered_map<int, Animal> mapaAnimales = pZoo->getHabitats()[i].getMapa();
@@ -16,6 +16,7 @@ int encontrarAnimal(int id, Zoo* pZoo){
     cout << "El id ingresado no corresponde a ningun animal\n" << endl;
     return -1;
 }
+
 
 
 void editarDieta(Zoo* pZoo){
@@ -84,6 +85,21 @@ void enlistarAnimales(Zoo* pZoo){
     }
 }
 
+int validarAnimal(Zoo* pZoo){  // ingreso del id y validacion de que el animal exista
+    int id;
+
+    do{
+        enlistarAnimales(pZoo);
+        cout << "Ingrese el id del animal:" << endl;
+        cin >> id;
+
+    }while(encontrarAnimal(id, pZoo) == -1);
+
+    return id;
+}
+
+
+
 int seleccionador(int x, string cadena[]){
     int opcTipo;
     do{
@@ -95,20 +111,31 @@ int seleccionador(int x, string cadena[]){
     return opcTipo;
 }
 
-void menuAccion(Zoo* pZoo){
-    int id, estaAnimal;
+string escogerAccion(){
     string acciones[4] = {"Salir", "Comer", "Jugar", "Dormir"};
 
-    int opcionAccion = seleccionador(4, acciones);
-    
-    do{
-        cout << "Ingresa el id del animal:" << endl;
-        cin >> id;
-        estaAnimal = encontrarAnimal(id, pZoo);
-    }while(estaAnimal == -1);
+    int seleccion = seleccionador(4, acciones);
 
+    return acciones[seleccion];
 }
 
+void accion(int id, string accion, Zoo* pZoo){
+    string alimento;
+    bool estaComida;
+    int estaAnimal = encontrarAnimal(id, pZoo);
+
+    if(accion == "Comer"){
+        do{
+            cout << "Ingrese el alimento:" << endl;
+            cin >> alimento;
+            estaComida = pZoo->buscarComida(pZoo->getHabitats()[estaAnimal].getMapa()[id].getDieta(), alimento);
+        }while(not estaComida);
+    }else if(accion == "“Jugar”"){
+        pZoo->getHabitats()[estaAnimal].getMapa()[id].juego();
+    }else if(accion == "“Dormir”"){
+        pZoo->getHabitats()[estaAnimal].getMapa()[id].dormir();
+    }
+}
 
 void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
@@ -162,6 +189,8 @@ void anadirHabitat(Zoo* pZoo){
 
 void menu(Zoo* pZoo){
     int opcion = 0;
+    int id;
+    string accionSel;
 
     cout << "########################\nBienvenido al SendoZoo!\n########################" << endl;
 
@@ -190,9 +219,9 @@ void menu(Zoo* pZoo){
                 enlistarAnimales(pZoo);
                 break;
             case 4:
-                //accion();
-
-                encontrarAnimal(0, pZoo);
+                id = validarAnimal(pZoo);
+                accionSel = escogerAccion();
+                accion(id, accionSel, pZoo);
                 break;
             case 5:
                 editarDieta(pZoo);

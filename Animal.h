@@ -53,11 +53,11 @@ public:
     void setJugar(bool jugar);
     bool getJugar();
 
-    virtual void juego();
+    void juego();
 
-    virtual void dormir();
+    void dormir();
 
-    virtual void comer(string alimento, bool dieta); // Pensado para que en el argumento bool se ingrese una funcion que verifique que el alimento se encuentre en la dieta
+    void comer(string alimento, bool dieta); // Pensado para que en el argumento bool se ingrese una funcion que verifique que el alimento se encuentre en la dieta
 };
 
 
