@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Zoo.h"
 #include "Animal.h"
 #include "Habitat.h"
@@ -83,7 +84,15 @@ int seleccionador(int x, string cadena[]){
         for(int i = 0; i <= x-1; i++){
             cout << i+1 << ") " << cadena[i] << endl;
         }
-        cin >> opcTipo;
+        try{
+            cin >> opcTipo;
+            if(cin.fail()){
+                throw runtime_error("Entrada invalida: no es un numero entero");
+            }
+        }catch(runtime_error& e){
+            cout<<e.what()<<endl;
+        }
+
     }while(opcTipo < 1 || opcTipo > x);
     return opcTipo;
 }
