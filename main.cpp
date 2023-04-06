@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Zoo.h"
 #include "Animal.h"
 #include "Habitat.h"
@@ -71,7 +72,7 @@ void editarDieta(Zoo* pZoo){
     }while(opcEditar != 0 && opcDieta != 0);
 }
 
-void enlistarAnimales(Zoo* pZoo){
+void listarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
     vector<Habitat> vectorHabitats = (pZoo->getHabitats());
@@ -89,7 +90,7 @@ int validarAnimal(Zoo* pZoo){  // ingreso del id y validacion de que el animal e
     int id;
 
     do{
-        enlistarAnimales(pZoo);
+        listarAnimales(pZoo);
         cout << "Ingrese el id del animal:" << endl;
         cin >> id;
 
@@ -106,7 +107,15 @@ int seleccionador(int x, string cadena[]){
         for(int i = 0; i <= x-1; i++){
             cout << i+1 << ") " << cadena[i] << endl;
         }
-        cin >> opcTipo;
+        try{
+            cin >> opcTipo;
+            if(cin.fail()){
+                throw runtime_error("Entrada invalida: no es un numero entero");
+            }
+        }catch(runtime_error& e){
+            cout<<e.what()<<endl;
+        }
+
     }while(opcTipo < 1 || opcTipo > x);
     return opcTipo;
 }
@@ -141,7 +150,7 @@ void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
     string tiposDietas[3]={"Carnivoro", "Herbivoro","Omnivoro"};
     string especie, nombre, tipoHabitat, tipoDieta;
-    int edad, horasDormir, opcDieta = 0, opcTipo = 0, opcHabitat = 0;
+    int edad, horasDormir, opcDieta, opcTipo, opcHabitat;
     int id = pZoo->getId();
     cout<<"Cual es la especie del animal?: "<<endl;
     cin>>especie;
@@ -151,8 +160,10 @@ void nuevoAnimal(Zoo* pZoo){
         cout<<"Cual es su edad?: "<<endl;
         cin>>edad;
     }while(edad<0 || edad>15);
-    cout<<"Cuantas horas necesita dormir?: "<<endl;
-    cin>>horasDormir;
+    do{
+        cout<<"Cuantas horas necesita dormir?: "<<endl;
+        cin>>horasDormir;
+    }while(horasDormir<1 || horasDormir>24);
     cout << "Selecciona el tipo de habitat del animal:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
     cout << "Selecciona el tipo de dieta:" << endl;
@@ -162,6 +173,9 @@ void nuevoAnimal(Zoo* pZoo){
     vector<Habitat> habitatTemp = (pZoo->getHabitats());
     do{
         cin>>opcHabitat;
+        if(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]){
+            cout<<nombre<<" no pertenece a un habitat de tipo "<<habitatTemp[opcHabitat-1].getTipo()<<endl;
+        }
     }while(habitatTemp[opcHabitat-1].getTipo()!=tipoHabitats[opcTipo-1]);
 
     Animal temp(nombre, especie, tipoHabitats[opcTipo-1], tiposDietas[opcDieta-1], id, edad, horasDormir, false);
@@ -216,7 +230,7 @@ void menu(Zoo* pZoo){
                 }
                 break;
             case 3:
-                enlistarAnimales(pZoo);
+                listarAnimales(pZoo);
                 break;
             case 4:
                 id = validarAnimal(pZoo);
