@@ -24,7 +24,7 @@ void editarDieta(Zoo* pZoo){
     string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
     string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
     string alimento = "";
-    int opcEditar, opcDieta;
+    int opcEditar = 0, opcDieta = 0;
 
     do{
         cout << "\nQue deseas hacer?" << endl;
