@@ -24,6 +24,7 @@ protected:
     int horasDormir;
     bool jugar;
 public:
+    Animal() = default;
     Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar);
 
     //~Animal();

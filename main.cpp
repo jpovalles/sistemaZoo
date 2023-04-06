@@ -3,6 +3,21 @@
 #include "Animal.h"
 #include "Habitat.h"
 
+int encontrarAnimal(int id, Zoo* pZoo){
+
+    for(int i = 0; i < pZoo->getHabitats().size(); i++){
+        unordered_map<int, Animal> mapaAnimales = pZoo->getHabitats()[i].getMapa();
+
+        if(mapaAnimales.count(id) == 1){
+            cout << "Animal encontrado!\n" << endl;
+            return i;
+        }
+    }
+    cout << "El id ingresado no corresponde a ningun animal\n" << endl;
+    return -1;
+}
+
+
 void editarDieta(Zoo* pZoo){
     string opcionEditar[3] = {"Salir","Agregar alimento", "Eliminar alimento"};
     string opcionDieta[4] = {"Salir", "Carnivoro", "Herbivoro", "Omnivoro"};
@@ -11,7 +26,7 @@ void editarDieta(Zoo* pZoo){
 
     do{
         cout << "\nQue deseas hacer?" << endl;
-        for(int i = 0; i != 3; i++){
+        for(int i = 0; i != opcionEditar->size(); i++){
             cout << i << ") " << opcionEditar[i] << endl;
         }
 
@@ -20,7 +35,7 @@ void editarDieta(Zoo* pZoo){
         if(opcEditar == 1 || opcEditar == 2){
             do{
                 cout << "\nQue dieta quieres editar?" << endl;
-                for(int i = 0; i != 4; i++){
+                for(int i = 0; i != opcionDieta->size(); i++){
                     cout << i << ") " << opcionDieta[i] << endl;
                 }
                 cin >> opcDieta;
@@ -69,14 +84,6 @@ void enlistarAnimales(Zoo* pZoo){
     }
 }
 
-bool esVacia(vector<Habitat> vector){
-    return &vector == NULL;
-}
-
-bool esVaciaAnimal(vector<Animal> animal){
-    return &animal == NULL;
-}
-
 int seleccionador(int x, string cadena[]){
     int opcTipo;
     do{
@@ -87,6 +94,21 @@ int seleccionador(int x, string cadena[]){
     }while(opcTipo < 1 || opcTipo > x);
     return opcTipo;
 }
+
+void menuAccion(Zoo* pZoo){
+    int id, estaAnimal;
+    string acciones[4] = {"Salir", "Comer", "Jugar", "Dormir"};
+
+    int opcionAccion = seleccionador(4, acciones);
+    
+    do{
+        cout << "Ingresa el id del animal:" << endl;
+        cin >> id;
+        estaAnimal = encontrarAnimal(id, pZoo);
+    }while(estaAnimal == -1);
+
+}
+
 
 void nuevoAnimal(Zoo* pZoo){
     string tipoHabitats[4] = {"Desertico", "Selvatico", "Polar", "Acuatico"};
@@ -169,6 +191,8 @@ void menu(Zoo* pZoo){
                 break;
             case 4:
                 //accion();
+
+                encontrarAnimal(0, pZoo);
                 break;
             case 5:
                 editarDieta(pZoo);

@@ -4,7 +4,7 @@
 
 #include "Animal.h"
 
-Animal::Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar):nombre(nombre), especie(especie), tipoHabitat(tipoHabitat), dieta(dieta), id(id), edad(edad), horasDormir(horasDormir), jugar(jugar) {}
+Animal::Animal(string nombre, string especie, string tipoHabitat, string dieta, int id, int edad, int horasDormir, bool jugar):nombre(std::move(nombre)), especie(std::move(especie)), tipoHabitat(std::move(tipoHabitat)), dieta(std::move(dieta)), id(id), edad(edad), horasDormir(horasDormir), jugar(jugar) {}
 
 void Animal::juego() {
     if(this->jugar){
