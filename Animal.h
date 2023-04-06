@@ -30,31 +30,20 @@ public:
 
     //~Animal();
 
-    void setNombre(string nombre);
     string getNombre();
 
-    void setEspecie(string especie);
     string getEspecie();
 
-    void setTipoHabitat(string tipoHabitat);
     string getTipoHabitat();
 
-    void setDieta(string Dieta);
     string getDieta();
 
     string getSalud();
 
-    void setId(int Id);
+
     int getId();
 
-    void setEdad(int Edad);
     int getEdad();
-
-    void setHorasDormir(int horasDormir);
-    int getHorasDormir();
-
-    void setJugar(bool jugar);
-    bool getJugar();
 
     void juego();
 
