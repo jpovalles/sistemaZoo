@@ -22,6 +22,7 @@ public:
     string getNombre();
     string getTipo();
     unordered_map<int, Animal*> getMapa();
+
     void agregarAnimal(Animal* tempAnimal);
     void imprimirAnimales();
 };
