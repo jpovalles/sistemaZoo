@@ -32,7 +32,7 @@ void Animal::dormir(){
     cout << "Muy bien! " << this->nombre << " descanso lo suficiente.\n" << endl;
 }
 
-void Animal::comer(string alimento, bool dieta) {
+void Animal::comer(string alimento, bool dieta) {   // Pensado para recibir por parametro una funcion que verifique que el alimento se encuentra en la dieta del animal
     if (dieta) {
         cout << "" << this->nombre << " esta comiendo " << alimento << "\n" << endl;
     } else {

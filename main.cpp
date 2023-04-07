@@ -11,11 +11,11 @@ int encontrarAnimal(int id, Zoo* pZoo){ //Metodo que busca el animal en los habi
 
         if(mapaAnimales.count(id) == 1){
             cout << "Animal encontrado!\n" << endl;
-            return i;
+            return i;   //Retorna el indice del habitat donde se encontro el animal
         }
     }
     cout << "El id ingresado no corresponde a ningun animal\n" << endl;
-    return -1;
+    return -1;  //Retorna -1 en caso de no encontrarlo
 }
 
 
@@ -35,7 +35,7 @@ void editarDieta(Zoo* pZoo){
 
         cin >> opcEditar;
 
-        if(opcEditar == 1 || opcEditar == 2){
+        if(opcEditar == 1 || opcEditar == 2){   // Para asegurarse que no pida dieta si antes se escogio salir
             do{
                 cout << "\nQue dieta quieres editar?" << endl;
                 for(int i = 0; i != 4; i++){
@@ -49,6 +49,7 @@ void editarDieta(Zoo* pZoo){
             case 0:
                 break;
             case 1:
+                // Condicion para asegurarse de que se corra solo si no se escogio salir en dieta
                 if(opcDieta != 0){
                     cout << "\nIngrese el nombre del alimento a ingresar:" << endl;
                     cin >> alimento;
@@ -56,6 +57,7 @@ void editarDieta(Zoo* pZoo){
                 }
                 break;
             case 2:
+                // Condicion para asegurarse de que se corra solo si no se escogio salir en dieta
                 if(opcDieta != 0) {
                     if(pZoo->getComida()[opcionDieta[opcDieta]].empty()){   // accedo al mapa de comida, busco la clave del tipo de dieta y ejecuto la funcion empty al vector de alimentos
                         cout << "\n# La dieta " << opcionDieta[opcDieta] << " no tiene alimentos!" << endl;
@@ -70,16 +72,19 @@ void editarDieta(Zoo* pZoo){
             default:
                 cout << "\n# Ingresa una opcion valida" << endl;
         }
-    }while(opcEditar != 0 && opcDieta != 0);
+    }while(opcEditar != 0 && opcDieta != 0);    //Para que se ejecute el salir al escoger dieta y opcion de editar
 }
 
 void listarAnimales(Zoo* pZoo){
     vector<Habitat>::iterator itVector;
     int num = 1;
     vector<Habitat> vectorHabitats = (pZoo->getHabitats());
+
     for (itVector = vectorHabitats.begin(); itVector != vectorHabitats.end(); ++itVector, num++){
         Habitat habitatTemp = *itVector;
+
         cout <<"\n"<<num << ") ";
+
         if(itVector->getMapa().empty()){
             cout<<"En "<<itVector->getNombre()<<" de tipo "<<itVector->getTipo()<< " se encuentran:"<<endl;
             cout<<"\tEste habitat esta vacio"<<endl;
@@ -120,7 +125,7 @@ int seleccionador(int x, string cadena[]){ //Se asegura de que el usuario no ing
     return opcTipo;
 }
 
-string escogerAccion(){ //Imprime las ordenes que se le pueden dar al animal y la retorna
+string escogerAccion(){ //Imprime las ordenes que se le pueden dar al animal, permite seleccionar y retorna la accion escogida
     string acciones[4] = {"Salir", "Comer", "Jugar", "Dormir"};
 
     int seleccion = seleccionador(4, acciones);
@@ -131,7 +136,7 @@ string escogerAccion(){ //Imprime las ordenes que se le pueden dar al animal y l
 void accion(int id, string accion, Zoo* pZoo){ //id: identificador del animal. Acción: orden que se le da al animal. Funciona a modo de menú
     string alimento;
     bool estaComida;
-    int estaAnimal = encontrarAnimal(id, pZoo);
+    int estaAnimal = encontrarAnimal(id, pZoo);     //encontrarAnimal retorna el indice del habitat donde esta el animal
     Animal* animTemp = pZoo->getHabitats()[estaAnimal].getMapa()[id];
 
     if(accion == "Comer"){
@@ -142,8 +147,9 @@ void accion(int id, string accion, Zoo* pZoo){ //id: identificador del animal. A
                 cout << "Ingrese el alimento:" << endl;
                 cin >> alimento;
                 estaComida = pZoo->buscarComida(animTemp->getDieta(), alimento);
-            }while(not estaComida); //Se verifica que el alimento sí pertenezca a la dieta
-            animTemp->comer(alimento, true); //El booleano indica si el alimento pertenece a la dieta del animal.
+            }while(not estaComida);     //Se verifica que el alimento sí pertenezca a la dieta
+            animTemp->comer(alimento, true);    //El booleano indica si el alimento pertenece a la dieta del animal.
+                                                        // Aqui se ingresa true porque previamente ya se verifico.
         }
 
     }else if(accion == "Jugar"){
@@ -244,7 +250,7 @@ void menu(Zoo* pZoo){
                 listarAnimales(pZoo);
                 break;
             case 4:
-                if(flag==0){
+                if(flag == 0){
                     cout<<"Aun no hay animales en el SendoZoo\n"<<endl;
                 }else {
                     accionSel = escogerAccion();
@@ -265,14 +271,10 @@ void menu(Zoo* pZoo){
 }
 
 
-int main(){
+int main() {
     Zoo *pZoo = new Zoo;
-
     pZoo->setId(1);
+
     menu(pZoo);
-    /*anadirHabitat(pZoo);
-    anadirHabitat(pZoo);
-    nuevoAnimal(pZoo);
-    enlistarAnimales(pZoo);*/
     return 0;
 }

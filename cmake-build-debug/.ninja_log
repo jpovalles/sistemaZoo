@@ -1,19 +1,7 @@
 # ninja log v5
-23	1458	7025132313855617	CMakeFiles/sistemaZoo.dir/Animal.cpp.obj	8365742eb903a8ed
-4	2013	7025133499963320	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
-2014	2615	7025133505931799	sistemaZoo.exe	97c7a2f40b3e16b7
-39	1583	7025132315088954	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
-63	1907	7025132318312374	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
-21	682	7025148999919872	build.ninja	3b7c97bf88ad710
-43	1217	7025149017064164	CMakeFiles/sistemaZoo.dir/Animal.cpp.obj	8365742eb903a8ed
-29	1436	7025149019343413	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
-15	1881	7025149023805379	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
-56	1895	7025149023927717	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
-1896	2341	7025149028332045	sistemaZoo.exe	97c7a2f40b3e16b7
 63	934	7025181818833238	CMakeFiles/sistemaZoo.dir/Animal.cpp.obj	8365742eb903a8ed
-37	1019	7025181819675302	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
-18	1304	7025181822524416	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
-52	1335	7025181822827560	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
-1335	1713	7025181826524241	sistemaZoo.exe	97c7a2f40b3e16b7
 4	1076	7025184587450042	CMakeFiles/sistemaZoo.dir/main.cpp.obj	a1dac22f6bc43cf
 1077	1610	7025184592739412	sistemaZoo.exe	97c7a2f40b3e16b7
+37	1019	7025181819675302	CMakeFiles/sistemaZoo.dir/Habitat.cpp.obj	784bab3b04da2231
+52	1335	7025181822827560	CMakeFiles/sistemaZoo.dir/Zoo.cpp.obj	4f3a93431cd97198
+21	682	7025369085186870	build.ninja	3b7c97bf88ad710
