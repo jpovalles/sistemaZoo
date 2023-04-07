@@ -48,30 +48,30 @@ Al ejecutar el programa se despliega un menú con 5 opciones, entre las que est�
 
 1) Añadir hábitat: pregunta el nombre y el tipo de hábitat para agregarlo al vector de la clase Zoo. Con el debugger es posible verlo fácilmente.
 
-![](D:\sistemaZoo\images\AnadirHabitat.png)
+![AnadirHabitat.png](images%2FAnadirHabitat.png)
 
 2) Añadir animal: Pregunta al usuario los atributos del animal como especie, nombre, tipo de hábitat, etc., y el hábitat al que lo queremos agregar, y le asigna un ID único automáticamente. Este objeto de la clase Animal lo agrega al mapa del hábitat que seleccionemos, en el que la llave es el ID del animal.
 
-![](D:\sistemaZoo\images\AnadirAnimal.png)
+![AnadirAnimal.png](images%2FAnadirAnimal.png)
 
 3) Listar Hábitats y animales: recorre el vector de la clase Zoo, accede a cada Hábitat del vector y va imprimiendo la información de cada animal que esté contenido en el mapa de aquel hábitat.
 
-![](D:\sistemaZoo\images\Listar.png)
+![Listar.png](images%2FListar.png)
 
 4) Realizar Acción: imprime los animales del hábitat y le pide al usuario el ID del animal al que le quiere dar la orden, en donde tiene las opciones de comer, dormir y jugar. Si selecciona comer pide el ID del animal, verifica que el vector de la dieta no esté vacío, pide el nombre del alimento, verifica que exista y posteriormente come. Si selecciona Dormir, pide el ID, y pide la cantidad de horas, si ingresa más o menos de las necesarias vuelve a pedir el dato. Si selecciona jugar, pide el ID y cambia el valor de este a true, por lo que si se vuelve a intentar, no será posible, e imprimirá que el animal está cansado.
 
 ### Prueba de Comer
 
-![](D:\sistemaZoo\images\comerPrueba.png)
+![comerPrueba.png](images%2FcomerPrueba.png)
 
 ### Prueba de jugar
 
-![](D:\sistemaZoo\images\jugarPrueba.png)
+![jugarPrueba.png](images%2FjugarPrueba.png)
 
 ### Prueba de dormir
 
-![](D:\sistemaZoo\images\dormirPrueba.png)
+![dormirPrueba.png](images%2FdormirPrueba.png)
 
 5) Editar dietas: permite agregar y eliminar alimentos de los vectores de las distintas dietas, las cuales actúan como llaves de un mapa.
 
-![](D:\sistemaZoo\images\Dietas.png)
+![Dietas.png](images%2FDietas.png)
