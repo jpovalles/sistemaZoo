@@ -40,6 +40,7 @@ public:
 
     string getSalud();
 
+    int getDormir();
 
     int getId();
 

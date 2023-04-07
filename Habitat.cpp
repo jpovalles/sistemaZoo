@@ -34,6 +34,6 @@ void Habitat::imprimirAnimales() {
         cout << "\t" << num << ") ID: " << iMapa->second->getId() << "| Nombre: " << iMapa->second->getNombre()<< "| Especie: "
              << iMapa->second->getEspecie() << "| Edad: " << iMapa->second->getEdad()<<"| Estado de salud: "<<iMapa->second->getSalud();
         cout << "| Dieta: " << iMapa->second->getDieta() << "|  \n\t   Tipo de habitat: " << iMapa->second->getTipoHabitat()<<"| Estado de salud: "
-        <<iMapa->second->getSalud()<<endl;
+        <<iMapa->second->getSalud()<<"| Horas que necesita dormir: "<<iMapa->second->getDormir()<<endl;
     }
 }

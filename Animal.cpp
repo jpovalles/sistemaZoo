@@ -68,7 +68,9 @@ int Animal::getEdad() {
     return this->edad;
 }
 
-
+int Animal::getDormir() {
+    return this->horasDormir;
+}
 
 string Animal::getSalud() {
     return this->estadoSalud;
