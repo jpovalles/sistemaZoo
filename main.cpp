@@ -53,6 +53,7 @@ void editarDieta(Zoo* pZoo){
                 if(opcDieta != 0){
                     cout << "\nIngrese el nombre del alimento a ingresar:" << endl;
                     cin >> alimento;
+                    getline(cin, alimento);
                     pZoo->agregarAlimento(opcionDieta[opcDieta], alimento);
                 }
                 break;
@@ -168,8 +169,10 @@ void nuevoAnimal(Zoo* pZoo){
     int id = pZoo->getId(); //Identificador automático para evitar id`s repetidos
     cout<<"Cual es la especie del animal?: "<<endl;
     cin>>especie;
+    getline(cin,especie);
     cout<<"Como se llama?: "<<endl;
     cin>>nombre;
+    getline(cin,nombre);
     do{
         cout<<"Cual es su edad?: "<<endl;
         cin>>edad;
@@ -208,6 +211,7 @@ void anadirHabitat(Zoo* pZoo){
 
     cout << "Ingrese el nombre del nuevo habitat:" << endl;
     cin >> nombreHabitat;
+    getline(cin,nombreHabitat);
     cout << "Selecciona el tipo de habitat:" << endl;
     opcTipo = seleccionador(4, tipoHabitats);
 
